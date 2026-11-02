@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6d5dfc"/>
+      <stop offset="0.55" stop-color="#c056f5"/>
+      <stop offset="1" stop-color="#ff6fa8"/>
+    </linearGradient>
+  </defs>
+  <rect x="24" y="24" width="464" height="464" rx="112" fill="url(#bg)"/>
+  <!-- T: top bar + receipt stem with a torn edge -->
+  <rect x="112" y="120" width="288" height="84" rx="42" fill="#fff"/>
+  <path d="M214 168 H298 V392 L284 408 L270 392 L256 408 L242 392 L228 408 L214 392 Z" fill="#fff"/>
+  <!-- aura sparkle -->
+  <path d="M372 254 L384 288 L418 300 L384 312 L372 346 L360 312 L326 300 L360 288 Z" fill="#fff" fill-opacity="0.92"/>
+</svg>
