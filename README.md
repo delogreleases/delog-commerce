@@ -11,7 +11,7 @@ Fill in the `SITE` block at the top of `main.js`:
 | `download` | A stable link to the latest installer, e.g. `https://github.com/YOUR-NAME/tillora-releases/releases/latest/download/Tillora-Setup.exe` |
 | `whatsapp` | Your WhatsApp number with country code, digits only (`919876543210`) |
 | `email` | Support email (the footer link is hidden while empty) |
-| `platera.download` | Platera's installer link. **Leave empty until Platera is released**: its buttons then offer early access on WhatsApp instead of a download. |
+| `platera.download` | Platera's installer link, e.g. `https://github.com/delogreleases/platera-releases/releases/latest/download/Platera-Setup.exe`. Empty: its buttons offer early access on WhatsApp instead of a download. |
 
 ## Hosting (free)
 

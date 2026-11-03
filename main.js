@@ -8,8 +8,8 @@ const SITE = {
   /** What the WhatsApp button types in for the visitor. */
   whatsappText: 'Hi! I saw Tillora on your website and would like to know more.',
   platera: {
-    /** Platera's installer link. Leave empty until Platera is released: its buttons then offer early access on WhatsApp. */
-    download: '',
+    /** Platera's installer link. Empty: its buttons offer early access on WhatsApp instead. */
+    download: 'https://github.com/delogreleases/platera-releases/releases/latest/download/Platera-Setup.exe',
     whatsappText: 'Hi! I saw Platera on your website and would like it for my restaurant.'
   }
 }
@@ -39,6 +39,7 @@ if (SITE.platera.download) {
   document.querySelectorAll('[data-platera-label]').forEach((s) => (s.textContent = 'Download for Windows'))
   document.querySelectorAll('[data-platera-soon]').forEach((s) => s.remove())
   document.querySelectorAll('[data-platera-heading]').forEach((h) => (h.textContent = 'Try Platera free for 14 days'))
+  document.querySelectorAll('[data-platera-text]').forEach((t) => (t.textContent = 'Download and install it on your billing PC, every feature open for 14 days. Message us on WhatsApp and we will help you add your tables and menu and get your kitchen screen running.'))
 } else document.querySelectorAll('[data-platera-only]').forEach((a) => a.remove())
 document.querySelectorAll('[data-email]').forEach((a) => {
   if (SITE.email) a.href = `mailto:${SITE.email}`
