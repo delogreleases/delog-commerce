@@ -1,4 +1,4 @@
-/* Delog Commerce · Tillora website. Fill in SITE once, every button picks it up. */
+/* Delog Commerce website (Tillora and Platera). Fill in SITE once, every button picks it up. */
 const SITE = {
   /** Where "Download" goes: a stable link to the latest installer (e.g. GitHub Releases). Empty: scrolls to the download section. */
   download: 'https://github.com/delogreleases/tillora-releases/releases/latest/download/Tillora-Setup.exe',
@@ -6,8 +6,19 @@ const SITE = {
   whatsapp: '916382026795',
   email: 'support.delogcommerce@gmail.com',
   /** What the WhatsApp button types in for the visitor. */
-  whatsappText: 'Hi! I saw Tillora on your website and would like to know more.'
+  whatsappText: 'Hi! I saw Tillora on your website and would like to know more.',
+  platera: {
+    /** Platera's installer link. Leave empty until Platera is released: its buttons then offer early access on WhatsApp. */
+    download: '',
+    whatsappText: 'Hi! I saw Platera on your website and would like it for my restaurant.'
+  }
 }
+
+/** Every Delog Commerce product. Add one here and it appears in the Products menu on every page. */
+const PRODUCTS = [
+  { key: 'tillora', name: 'Tillora', for: 'Retail shops', colour: '167 139 250', href: 'index.html', icon: 'assets/tillora-icon.svg', shot: 'assets/screens/counter.jpg', points: ['Billing & stock by size', 'GST bills & reports', 'WhatsApp receipts'] },
+  { key: 'platera', name: 'Platera', for: 'Restaurants', colour: '255 122 46', href: 'platera.html', icon: 'assets/platera-icon.svg', shot: 'assets/platera/counter-home.jpg', points: ['Table billing & KOTs', 'Kitchen screen', 'Waiter app & QR ordering'] }
+]
 
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
@@ -17,15 +28,75 @@ document.querySelectorAll('[data-download]').forEach((a) => {
   else if (a.getAttribute('href') === '#') a.href = '#download'
 })
 document.querySelectorAll('[data-whatsapp]').forEach((a) => {
-  a.href = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(SITE.whatsappText)}`
+  const text = a.dataset.whatsapp === 'platera' ? SITE.platera.whatsappText : SITE.whatsappText
+  a.href = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(text)}`
   a.target = '_blank'
   a.rel = 'noopener'
 })
+// Platera: a download once it is released; until then, early access on WhatsApp.
+if (SITE.platera.download) {
+  document.querySelectorAll('[data-platera-download]').forEach((a) => (a.href = SITE.platera.download))
+  document.querySelectorAll('[data-platera-label]').forEach((s) => (s.textContent = 'Download for Windows'))
+  document.querySelectorAll('[data-platera-soon]').forEach((s) => s.remove())
+  document.querySelectorAll('[data-platera-heading]').forEach((h) => (h.textContent = 'Try Platera free for 14 days'))
+} else document.querySelectorAll('[data-platera-only]').forEach((a) => a.remove())
 document.querySelectorAll('[data-email]').forEach((a) => {
   if (SITE.email) a.href = `mailto:${SITE.email}`
   else a.remove()
 })
 document.querySelectorAll('[data-year]').forEach((s) => (s.textContent = String(new Date().getFullYear())))
+
+// ---------- Products menu: the list on the left, a preview of the hovered product on the right ----------
+document.querySelectorAll('.pmenu').forEach((menu) => {
+  const btn = menu.querySelector('.pmenu-btn')
+  const panel = menu.querySelector('.pmenu-panel')
+  const here = PRODUCTS.find((p) => p.key === menu.dataset.product) ?? PRODUCTS[0]
+  const esc = (t) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;')
+  btn.innerHTML = `<img src="${here.icon}" alt="" /><span>Products</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>`
+  panel.innerHTML =
+    '<div class="pmenu-list"><div class="pmenu-head">Products</div>' +
+    PRODUCTS.map(
+      (p, i) =>
+        `<a class="pmenu-item" href="${p.href}" data-i="${i}" style="--pc: ${p.colour}"${p === here ? ' aria-current="page"' : ''}><img src="${p.icon}" alt="" /><span><b>${esc(p.name)}</b><small>${esc(p.for)}</small></span>${p === here ? '<span class="here" title="You are here">✓</span>' : ''}</a>`
+    ).join('') +
+    '<div class="pmenu-soon"><i>+</i>More soon</div></div><div class="pmenu-preview"></div>'
+  const items = [...panel.querySelectorAll('.pmenu-item')]
+  const preview = panel.querySelector('.pmenu-preview')
+  const select = (i) => {
+    const p = PRODUCTS[i]
+    items.forEach((x, n) => x.classList.toggle('sel', n === i))
+    preview.style.setProperty('--pc', p.colour)
+    preview.innerHTML = `<img src="${p.shot}" alt="" /><b>${esc(p.name)} for ${esc(p.for.toLowerCase())}</b><ul>${p.points.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>${p === here ? '<span class="pmenu-go here">You’re here</span>' : `<a class="pmenu-go" href="${p.href}">Explore ${esc(p.name)} →</a>`}`
+  }
+  items.forEach((x, i) => {
+    x.addEventListener('mouseenter', () => select(i))
+    x.addEventListener('focus', () => select(i))
+  })
+  // Opens on another product than this one, so the menu shows something new.
+  const start = Math.max(0, PRODUCTS.findIndex((p) => p !== here))
+  const open = (on) => {
+    if (on) select(start)
+    panel.hidden = !on
+    btn.setAttribute('aria-expanded', String(on))
+  }
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation()
+    open(panel.hidden)
+  })
+  document.addEventListener('click', (e) => !menu.contains(e.target) && open(false))
+  document.addEventListener('keydown', (e) => {
+    if (panel.hidden) return
+    if (e.key === 'Escape') {
+      open(false)
+      btn.focus()
+    } else if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      e.preventDefault()
+      const now = items.indexOf(document.activeElement)
+      const step = e.key === 'ArrowDown' ? 1 : -1
+      items[now < 0 ? 0 : (now + step + items.length) % items.length].focus()
+    }
+  })
+})
 
 // ---------- mobile menu ----------
 const nav = document.querySelector('.nav')
@@ -170,3 +241,57 @@ const counters = new IntersectionObserver(
   { threshold: 0.6 }
 )
 document.querySelectorAll('[data-count]').forEach((el) => counters.observe(el))
+
+// ---------- FAQ with topics and search (both product pages) ----------
+const faq = document.querySelector('.faq2')
+if (faq) {
+  const items = [...faq.querySelectorAll('details.qa')]
+  const tabs = [...faq.querySelectorAll('.faq-topics button')]
+  const search = faq.querySelector('[data-faq-search]')
+  const empty = faq.querySelector('.faq-empty')
+  let topic = 'popular'
+  // Each topic shows how many questions it holds.
+  faq.querySelectorAll('[data-topic-count]').forEach((s) => {
+    const t = s.dataset.topicCount
+    s.textContent = String(items.filter((i) => (t === 'popular' ? i.hasAttribute('data-popular') : i.dataset.topic === t)).length)
+  })
+  const text = new Map(items.map((i) => [i, i.textContent.toLowerCase()]))
+  const show = () => {
+    const q = search.value.trim().toLowerCase()
+    let shown = 0
+    for (const i of items) {
+      // Searching looks through every question; otherwise the picked topic, or the most asked ones.
+      const on = q ? text.get(i).includes(q) : topic === 'popular' ? i.hasAttribute('data-popular') : i.dataset.topic === topic
+      i.hidden = !on
+      if (on) shown++
+      if (!on) i.open = false
+    }
+    empty.hidden = shown > 0
+  }
+  const pick = (t) => {
+    if (t) topic = t
+    tabs.forEach((x) => {
+      x.classList.toggle('on', x.dataset.topic === t)
+      x.setAttribute('aria-selected', String(x.dataset.topic === t))
+    })
+  }
+  tabs.forEach((b) =>
+    b.addEventListener('click', () => {
+      pick(b.dataset.topic)
+      search.value = ''
+      show()
+    })
+  )
+  // A search looks through every topic, so no topic stays highlighted while it runs.
+  search.addEventListener('input', () => {
+    if (search.value.trim()) pick('')
+    else pick(topic || 'popular')
+    show()
+  })
+  // One answer open at a time keeps the list easy to scan.
+  items.forEach((i) => i.addEventListener('toggle', () => i.open && items.forEach((x) => x !== i && (x.open = false))))
+  show()
+  const first = items.find((i) => !i.hidden)
+  if (first) first.open = true
+}
+

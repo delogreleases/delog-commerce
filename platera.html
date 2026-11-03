@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Platera by Delog Commerce · Restaurant billing that keeps up with the rush</title>
+    <meta name="description" content="Platera is a restaurant POS for Windows: table billing, KOTs to every kitchen station, a kitchen screen, a waiter app and QR ordering from the table. GST and bar VAT ready, and it works fully offline on your own Wi-Fi." />
+    <meta property="og:title" content="Platera by Delog Commerce" />
+    <meta property="og:description" content="Every table. Every order. On time. Restaurant billing, kitchen screen, waiter app and table QR ordering, all offline." />
+    <meta property="og:image" content="assets/platera/counter-home.jpg" />
+    <meta name="theme-color" content="#0c0806" />
+    <link rel="icon" href="assets/platera-icon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="platera.css" />
+  </head>
+  <body class="platera">
+    <div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+
+    <!-- ===== Navigation ===== -->
+    <header class="nav" id="top">
+      <a class="brand" href="index.html" aria-label="Delog Commerce home">
+        <span class="brand-word">DELOG</span><span class="brand-div">Commerce</span>
+      </a>
+      <div class="pmenu" data-product="platera">
+        <button class="pmenu-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="pmenu-panel"></button>
+        <div class="pmenu-panel" id="pmenu-panel" hidden></div>
+      </div>
+      <nav class="nav-links" aria-label="Main">
+        <a href="#kitchen">Kitchen</a>
+        <a href="#phones">Waiters &amp; QR</a>
+        <a href="#features">Features</a>
+        <a href="#screens">Screens</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a class="btn btn-primary btn-sm" href="#get">Get Platera</a>
+      <button class="nav-menu" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+    </header>
+
+    <main>
+      <!-- ===== Hero ===== -->
+      <section class="hero" id="platera">
+        <div class="hero-copy reveal">
+          <div class="eyebrow"><img src="assets/platera-icon.svg" alt="" width="22" height="22" /> Delog Commerce presents <b>Platera</b></div>
+          <h1>Every table. <span class="grad">Every order. On time.</span></h1>
+          <p class="lead">Restaurant billing that keeps up with the rush. Table bills, KOTs to every kitchen station, a kitchen screen, a waiter app and QR ordering from the table, all from one Windows PC, and it works <b>100% offline</b> on your own Wi-Fi.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary btn-lg" data-platera-download href="#get">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.3 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.3z" fill="currentColor" /></svg>
+              <span data-platera-label>Get early access</span>
+            </a>
+            <a class="btn btn-ghost btn-lg" href="#kitchen">See the kitchen screen <span aria-hidden="true">→</span></a>
+          </div>
+          <ul class="trust">
+            <li><i></i>Dine-in, takeaway &amp; delivery</li>
+            <li><i></i>GST &amp; bar VAT ready</li>
+            <li><i></i>No internet needed</li>
+          </ul>
+        </div>
+
+        <div class="stage reveal" data-tilt-stage>
+          <div class="floor" aria-hidden="true"></div>
+          <div class="scene">
+            <div class="laptop">
+              <div class="lid">
+                <div class="bezel"><img src="assets/platera/counter-home.jpg" alt="Platera counter: dishes with food pictures, sections and a bill in progress" /></div>
+              </div>
+              <div class="base"><span></span></div>
+            </div>
+
+            <div class="float f-kot" aria-hidden="true">
+              <div class="k-head"><span>KOT 14 · TANDOOR</span><span>12:41</span></div>
+              <div class="k-table">Table T5</div>
+              <div class="k-item"><b>2</b> Paneer tikka · Full</div>
+              <div class="k-item"><b>4</b> Butter naan</div>
+              <div class="k-item"><b>1</b> Tandoori chicken</div>
+              <span class="k-note">✎ Less spicy</span>
+            </div>
+
+            <div class="float f-table" aria-hidden="true">
+              <span class="t-top">T9</span>
+              <div><div class="f-label"><i class="dot"></i>COOKING</div><div class="f-mid">₹2,214 · 21 min</div></div>
+            </div>
+
+            <div class="float f-qr-order" aria-hidden="true">
+              <span class="bell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" /><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" /></svg></span>
+              <div><div class="f-mid">T4 ordered from the QR</div><div class="f-small">2 Masala dosa · 2 Filter coffee</div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Marquee ===== -->
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>Table billing</span><span>KOT per station</span><span>Kitchen screen</span><span>Captain app</span><span>QR table ordering</span><span>Live floor map</span><span>Bar &amp; liquor VAT</span><span>Swiggy &amp; Zomato orders</span><span>Menu book PDF</span><span>Works offline</span>
+          <span>Table billing</span><span>KOT per station</span><span>Kitchen screen</span><span>Captain app</span><span>QR table ordering</span><span>Live floor map</span><span>Bar &amp; liquor VAT</span><span>Swiggy &amp; Zomato orders</span><span>Menu book PDF</span><span>Works offline</span>
+        </div>
+      </div>
+
+      <!-- ===== Tables & counter ===== -->
+      <section class="split" id="tables">
+        <div class="split-copy reveal">
+          <div class="kicker">The floor</div>
+          <h2>See every table at a glance. <span class="grad">Settle one in seconds.</span></h2>
+          <p>Each table shows its guests, its bill and how long they have been seated. Tap a seated table and its bill opens on the counter, ready to add a dish, send a KOT or take payment.</p>
+          <ul class="ticks">
+            <li><b>Seat guests</b> up to the table’s seats; move, merge or split bills</li>
+            <li><b>Add-ons and kitchen notes</b>: “Extra butter”, “Less oil”, “Jain”</li>
+            <li><b>Service, packing and delivery charges</b> you can change per bill</li>
+            <li><b>Cash, UPI, card or split</b>, with a UPI QR for the exact amount</li>
+            <li><b>Takeaway and delivery</b>, including Swiggy and Zomato orders</li>
+          </ul>
+        </div>
+        <div class="stack reveal" data-tilt>
+          <img class="stack-back" src="assets/platera/tables.jpg" alt="Tables page with each table drawn as a table top, its bill and minutes seated, and guest requests on the side" loading="lazy" />
+          <img class="stack-front" src="assets/platera/addons.jpg" alt="Add-ons window for Butter naan with extra butter picked and a Less oil note" loading="lazy" />
+        </div>
+      </section>
+
+      <!-- ===== Kitchen screen ===== -->
+      <section class="showcase" id="kitchen">
+        <div class="section-head reveal">
+          <div class="kicker">Kitchen screen</div>
+          <h2>The kitchen sees it <span class="grad">the moment it’s ordered.</span></h2>
+          <p>Put any TV or tablet on your Wi-Fi in the kitchen. Tickets arrive with a chime, each station sees its own dishes, and the border colour tells the cooks what to make next. Tap a dish when it is done; Ready clears the ticket.</p>
+        </div>
+        <div class="tv reveal"><img src="assets/platera/kitchen.jpg" alt="Kitchen screen: tickets for each table with glowing borders by urgency, timers and Ready buttons" loading="lazy" /></div>
+        <div class="legend reveal">
+          <span><i style="--c: #b388ff"></i>New</span>
+          <span><i style="--c: #4dabff"></i>Cooking</span>
+          <span><i style="--c: #ffb02e"></i>Nearly due</span>
+          <span><i style="--c: #ff3b5c"></i>Late</span>
+          <span><i style="--c: #4cff9d"></i>Ready to serve</span>
+        </div>
+      </section>
+
+      <!-- ===== Phones ===== -->
+      <section class="phones-wrap" id="phones">
+        <div class="section-head reveal">
+          <div class="kicker">On their phones</div>
+          <h2>Waiters take orders at the table. <span class="grad">Guests can order too.</span></h2>
+          <p>Both open in any phone’s browser on your Wi-Fi. Nothing to install, nothing goes to the internet.</p>
+        </div>
+        <div class="phones">
+          <article class="phone-card reveal">
+            <div class="phone-pair">
+              <div class="phone"><div class="screen"><img src="assets/platera/captain-tables.jpg" alt="Captain app: tables, guest requests and running bills" loading="lazy" /></div></div>
+              <div class="phone"><div class="screen"><img src="assets/platera/captain-menu.jpg" alt="Captain app menu with dishes and sections" loading="lazy" /></div></div>
+            </div>
+            <div>
+              <h3>Captain app for waiters</h3>
+              <p>Waiters sign in with their PIN, seat guests, add dishes with their add-ons and send the KOT from the table. Guest requests and bill-ready tables show up on their phone.</p>
+            </div>
+          </article>
+          <article class="phone-card reveal">
+            <div class="phone-pair">
+              <div class="phone"><div class="screen"><img src="assets/platera/guest-menu.jpg" alt="Table QR menu: the restaurant's menu with sections, dish pictures and prices" loading="lazy" /></div></div>
+              <div class="phone"><div class="screen"><img src="assets/platera/guest-dish.jpg" alt="Guest adding Butter naan with extra butter and a Less spicy note" loading="lazy" /></div></div>
+            </div>
+            <div>
+              <h3>QR menu on every table</h3>
+              <p>Guests scan the card on their table to see the menu, order, call a waiter or ask for the bill. Every order waits for your staff to accept it before it reaches the kitchen.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ===== Features bento ===== -->
+      <section class="features" id="features">
+        <div class="section-head reveal">
+          <div class="kicker">Everything a restaurant needs</div>
+          <h2>One PC. <span class="grad">The whole restaurant.</span></h2>
+          <p>From the first table of lunch to the last bill at night: billing, kitchen, bar, stock and reports in one place.</p>
+        </div>
+        <div class="bento">
+          <article class="card c-wide reveal" data-tilt>
+            <div class="ico i-amber"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z M8 9h8 M8 13h8 M8 17h5" /></svg></div>
+            <h3>KOTs to the right station</h3>
+            <p>Each dish goes to its station: tandoor, main kitchen, beverages or bar, on its own printer or the kitchen screen. Cancelled dishes print a cancel ticket so nothing is cooked by mistake.</p>
+            <div class="chips"><span>Per-station printers</span><span>Reprint</span><span>Cancel tickets</span></div>
+          </article>
+          <article class="card reveal" data-tilt>
+            <div class="ico i-pink"><svg viewBox="0 0 24 24"><path d="M8 22h8 M12 11v11 M5 3h14l-1 6a6 6 0 0 1-12 0z" /></svg></div>
+            <h3>Bar, done properly</h3>
+            <p>Liquor on its own part of the bill with state VAT instead of GST, sold by the peg with bottles counted in ml.</p>
+          </article>
+          <article class="card reveal" data-tilt>
+            <div class="ico i-green"><svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4-9 4zM3 7v10l9 4 9-4V7M12 11v10" /></svg></div>
+            <h3>Recipes &amp; kitchen stock</h3>
+            <p>Link dishes to their ingredients and Platera keeps the kitchen stock as you sell, with low-stock warnings.</p>
+          </article>
+          <article class="card reveal" data-tilt>
+            <div class="ico i-blue"><svg viewBox="0 0 24 24"><path d="M5 17h14 M7 17l1-6h8l1 6 M9 11V7h6v4 M4 21h16" /></svg></div>
+            <h3>Takeaway &amp; delivery</h3>
+            <p>Parcels with packing charges, your own deliveries, and Swiggy or Zomato orders billed without GST, as the law asks.</p>
+          </article>
+          <article class="card reveal" data-tilt>
+            <div class="ico i-violet"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2" /></svg></div>
+            <h3>GST bills &amp; reports</h3>
+            <p>GST on every bill, GSTR-1 export, day close, and sales by dish, section and staff.</p>
+          </article>
+          <article class="card c-wide reveal" data-tilt>
+            <div class="ico i-cyan"><svg viewBox="0 0 24 24"><path d="M3 4h12v10H3zM17 8h4v12h-8v-3M7 18h4" /></svg></div>
+            <h3>Live map for the owner</h3>
+            <p>A second screen just for you: every table and parcel as it happens, today’s sales, the kitchen queue and who is waiting longest. Click any table to see its full story.</p>
+            <div class="chips"><span>Works on a spare monitor</span><span>Follows your theme</span></div>
+          </article>
+          <article class="card c-wide reveal" data-tilt>
+            <div class="ico i-slate"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z M9 12l2 2 4-4" /></svg></div>
+            <h3>Safe, private, offline</h3>
+            <p>Your data stays on your PC. Daily automatic backups, a PIN for every user, and the kitchen screen, waiter app and QR menu run on your own Wi-Fi, never the internet.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ===== Live map ===== -->
+      <section class="split" id="live">
+        <div class="tv tv-side reveal"><img src="assets/platera/live-map.jpg" alt="Owner's live map: tables on the floor plan beside a list of everything running, most urgent first" loading="lazy" /></div>
+        <div class="split-copy reveal">
+          <div class="kicker">For the owner</div>
+          <h2>Watch the whole floor <span class="grad">from one screen.</span></h2>
+          <p>Open the live map on a spare monitor. It shows every table on your floor plan, what each one is waiting for, and everything running, most urgent first.</p>
+          <ul class="ticks">
+            <li><b>Tables that need you</b>: asking for the bill, food running late</li>
+            <li><b>Today at a glance</b>: sales, guests and the kitchen queue</li>
+            <li><b>Click a table</b> to see its dishes, tickets and timeline</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===== Menu book ===== -->
+      <section class="split" id="menu-book">
+        <div class="split-copy reveal">
+          <div class="kicker">Menu book</div>
+          <h2>Your printed menu, <span class="grad">made from your billing menu.</span></h2>
+          <p>One click turns the menu you bill from into a printable PDF menu book: a cover, every section with prices, portions and veg marks, and a back page. Change a price and print it again.</p>
+          <ul class="ticks">
+            <li><b>Three looks</b>: Classic, Modern with dish pictures, or Noir for bars</li>
+            <li><b>A4 or A5 booklet</b>, ready for a print shop</li>
+            <li><b>Pick the sections</b>, for a separate bar or dessert menu</li>
+          </ul>
+        </div>
+        <div class="book reveal">
+          <img src="assets/platera/menu-book-cover.jpg" alt="Menu book cover" loading="lazy" />
+          <img src="assets/platera/menu-book-classic.jpg" alt="Menu book page in the Classic look" loading="lazy" />
+          <img src="assets/platera/menu-book-modern.jpg" alt="Menu book page in the Modern look with dish pictures" loading="lazy" />
+        </div>
+      </section>
+
+      <!-- ===== Screens carousel ===== -->
+      <section class="screens" id="screens">
+        <div class="section-head reveal">
+          <div class="kicker">Take a look</div>
+          <h2>Built for the <span class="grad">dinner rush.</span></h2>
+          <p>Every screen is made for speed when every table is full.</p>
+        </div>
+        <div class="coverflow reveal" tabindex="0" aria-roledescription="carousel" aria-label="Platera screenshots">
+          <figure data-title="The counter" data-text="Dishes with pictures and veg marks, sections in a row, the bill on the right."><img src="assets/platera/counter-home.jpg" alt="Counter" loading="lazy" /></figure>
+          <figure data-title="Settle a table" data-text="A table’s bill with its add-ons, charges and a one-key Send KOT."><img src="assets/platera/counter.jpg" alt="Counter settling a table" loading="lazy" /></figure>
+          <figure data-title="Tables" data-text="Every table, its bill and its time, with guest requests on the side."><img src="assets/platera/tables.jpg" alt="Tables" loading="lazy" /></figure>
+          <figure class="dark" data-title="Kitchen screen" data-text="Tickets by urgency, a chime for new ones, Ready in one tap."><img src="assets/platera/kitchen.jpg" alt="Kitchen screen" loading="lazy" /></figure>
+          <figure data-title="Live map" data-text="The whole floor on the owner’s screen, most urgent first."><img src="assets/platera/live-map.jpg" alt="Live map" loading="lazy" /></figure>
+          <figure data-title="Add-ons and notes" data-text="Extras with their prices and quick kitchen notes."><img src="assets/platera/addons.jpg" alt="Add-ons window" loading="lazy" /></figure>
+        </div>
+        <div class="cf-caption" aria-live="polite"><h3></h3><p></p></div>
+        <div class="cf-controls">
+          <button class="cf-btn" data-cf="-1" aria-label="Previous screenshot">←</button>
+          <div class="cf-dots"></div>
+          <button class="cf-btn" data-cf="1" aria-label="Next screenshot">→</button>
+        </div>
+      </section>
+
+      <!-- ===== Numbers ===== -->
+      <section class="numbers reveal">
+        <div class="num"><b data-count="1">1</b><span>Windows PC runs it all</span></div>
+        <div class="num"><b data-count="3">3</b><span>screens: counter, kitchen, owner</span></div>
+        <div class="num"><b data-count="209">209</b><span>automated tests on every build</span></div>
+        <div class="num"><b data-count="0">0</b><span>internet needed to serve</span></div>
+      </section>
+
+      <!-- ===== Steps ===== -->
+      <section class="steps-wrap">
+        <div class="section-head reveal">
+          <div class="kicker">Up and running today</div>
+          <h2>Three steps. <span class="grad">Open for dinner.</span></h2>
+        </div>
+        <div class="steps">
+          <div class="step reveal" data-tilt><span class="step-n">1</span><h3>Install on one PC</h3><p>One installer for Windows 10 and 11. No server, no account, no internet needed.</p></div>
+          <div class="step reveal" data-tilt><span class="step-n">2</span><h3>Add tables and menu</h3><p>Lay out your tables in a minute, add dishes with portions and add-ons, or import them from Excel.</p></div>
+          <div class="step reveal" data-tilt><span class="step-n">3</span><h3>Start serving</h3><p>Turn on the kitchen screen and waiter app on your Wi-Fi, print the table QR cards, and seat your first guests.</p></div>
+        </div>
+      </section>
+
+      <!-- ===== Get Platera ===== -->
+      <section class="cta reveal" id="get">
+        <div class="cta-card">
+          <div class="cta-glow" aria-hidden="true"></div>
+          <img src="assets/platera-icon.svg" alt="" width="72" height="72" class="cta-icon" />
+          <div class="soon" data-platera-soon>Early access</div>
+          <h2 data-platera-heading>Bring Platera to your restaurant</h2>
+          <p>Message us on WhatsApp and we will set you up with early access, help you add your tables and menu, and get your kitchen screen running.</p>
+          <div class="cta-row center">
+            <a class="btn btn-white btn-lg" data-platera-download data-platera-only href="#">Download for Windows</a>
+            <a class="btn btn-wa btn-lg" data-whatsapp="platera" href="#">Talk to us on WhatsApp</a>
+          </div>
+          <div class="reqs">
+            <span>Windows 10 or 11 (64-bit)</span><span>4 GB RAM or more</span><span>Thermal KOT &amp; bill printers</span><span>Any TV, tablet or phone on your Wi-Fi</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== FAQ ===== -->
+      <section class="faq2" id="faq">
+        <div class="faq-side reveal">
+          <div class="kicker">Questions</div>
+          <h2>Everything you’d <span class="grad">ask us first.</span></h2>
+          <p>Short answers about running Platera in your restaurant. Pick a topic or search.</p>
+          <label class="faq-search">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
+            <input type="search" placeholder="Search questions" data-faq-search aria-label="Search questions" />
+          </label>
+          <div class="faq-topics" role="tablist" aria-label="Topics">
+            <button type="button" class="on" data-topic="popular" role="tab" aria-selected="true">Most asked<span data-topic-count="popular"></span></button>
+            <button type="button" class="" data-topic="start" role="tab" aria-selected="false">Getting started<span data-topic-count="start"></span></button>
+            <button type="button" class="" data-topic="kitchen" role="tab" aria-selected="false">Kitchen &amp; waiters<span data-topic-count="kitchen"></span></button>
+            <button type="button" class="" data-topic="billing" role="tab" aria-selected="false">Billing &amp; GST<span data-topic-count="billing"></span></button>
+            <button type="button" class="" data-topic="bar" role="tab" aria-selected="false">Bar, delivery &amp; stock<span data-topic-count="bar"></span></button>
+            <button type="button" class="" data-topic="data" role="tab" aria-selected="false">Data &amp; safety<span data-topic-count="data"></span></button>
+            <button type="button" class="" data-topic="plans" role="tab" aria-selected="false">Price &amp; support<span data-topic-count="plans"></span></button>
+          </div>
+        </div>
+        <div class="faq-items">
+          <details class="qa" data-popular data-topic="start"><summary><span class="qn"></span><span class="qt">Does Platera need the internet?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>No. Billing, KOTs, the kitchen screen, the waiter app and the table QR menu all run on your own Wi-Fi from the Platera PC. The internet is only used when you choose to send something on WhatsApp.</p></div></details>
+          <details class="qa" data-topic="start"><summary><span class="qn"></span><span class="qt">What computer do I need?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>One Windows 10 or 11 PC (64-bit) with 4 GB of RAM or more runs everything. Kitchen screens, waiters’ phones and guests’ phones simply open Platera in their browser over your Wi-Fi.</p></div></details>
+          <details class="qa" data-topic="start"><summary><span class="qn"></span><span class="qt">How long does setup take?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Most restaurants are billing the same day. Lay out your tables (Platera can make the first floor for you), add your dishes with their portions and add-ons, and set your printers.</p></div></details>
+          <details class="qa" data-topic="start"><summary><span class="qn"></span><span class="qt">Can I bring my menu from Excel?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Yes. Download the ready template from the Menu page, fill in your dishes and prices, and import it. Sections, portions and GST come in with it.</p></div></details>
+          <details class="qa" data-popular data-topic="start"><summary><span class="qn"></span><span class="qt">Can I try it before buying?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Yes. Every new install starts with a 14-day free trial with every feature switched on, and nothing you add during the trial is lost when you buy.</p></div></details>
+          <details class="qa" data-popular data-topic="kitchen"><summary><span class="qn"></span><span class="qt">What do I need for the kitchen screen and waiter app?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Any TV, tablet or phone with a browser on the same Wi-Fi as the Platera PC. Turn on the shop network in Settings, open the link it shows, and sign in with a PIN.</p></div></details>
+          <details class="qa" data-topic="kitchen"><summary><span class="qn"></span><span class="qt">Can each kitchen station get its own tickets?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Yes. Each dish goes to its station, such as tandoor, main kitchen, beverages or bar, on that station’s printer or on the kitchen screen, where each station can see only its own tickets.</p></div></details>
+          <details class="qa" data-topic="kitchen"><summary><span class="qn"></span><span class="qt">What happens when a dish is cancelled after it’s sent?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Platera prints a cancel ticket for that station, and the kitchen screen shows the dish struck out in red, so nothing is cooked by mistake. The reason is kept for your records.</p></div></details>
+          <details class="qa" data-topic="kitchen"><summary><span class="qn"></span><span class="qt">How does the kitchen know what to cook first?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Tickets are ordered oldest first, and each one glows by urgency: blue while cooking on time, amber when nearly due, red when late, and green when every dish is ready to serve.</p></div></details>
+          <details class="qa" data-popular data-topic="kitchen"><summary><span class="qn"></span><span class="qt">Can guests order by themselves?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Yes, if you turn on the table QR. Guests scan the card on their table, see your menu and send an order, call a waiter or ask for the bill.</p></div></details>
+          <details class="qa" data-topic="kitchen"><summary><span class="qn"></span><span class="qt">What stops misuse of the table QR?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Every guest order waits for your staff to accept it before it reaches the kitchen. Each table has its own secret code, there is a limit on how often a table can ask, and one click makes new codes if cards are copied.</p></div></details>
+          <details class="qa" data-popular data-topic="billing"><summary><span class="qn"></span><span class="qt">Is it ready for GST?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Yes. Bills show CGST and SGST, prices can include GST or add it on top, and you can export GSTR-1 and close each day with a summary for your accountant.</p></div></details>
+          <details class="qa" data-topic="billing"><summary><span class="qn"></span><span class="qt">Can I add a service charge?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Yes, and only when the guest agrees, as the rules ask. Packing and delivery charges work the same way, and you can change any of them on a single bill.</p></div></details>
+          <details class="qa" data-topic="billing"><summary><span class="qn"></span><span class="qt">Can I move, merge or split a table’s bill?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Yes. Move guests to another table, merge two tables into one bill, or split some dishes onto a separate bill when friends pay apart.</p></div></details>
+          <details class="qa" data-topic="billing"><summary><span class="qn"></span><span class="qt">How can guests pay?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Cash with change worked out, UPI with a QR for the exact amount, card, or a split across them.</p></div></details>
+          <details class="qa" data-topic="billing"><summary><span class="qn"></span><span class="qt">Can I print a menu card for the tables?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Yes. Menu → More → Menu book makes a printable PDF menu from the dishes you bill from, in a Classic, Modern or Noir look, A4 or A5.</p></div></details>
+          <details class="qa" data-popular data-topic="bar"><summary><span class="qn"></span><span class="qt">Does it handle the bar?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Yes. Liquor is billed on its own part of the bill with state VAT instead of GST, sold by the peg or bottle, with stock kept in ml.</p></div></details>
+          <details class="qa" data-topic="bar"><summary><span class="qn"></span><span class="qt">What about Swiggy and Zomato orders?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Bill them as delivery orders. Platera leaves GST off those bills, since the platform pays it, and reports them separately for GSTR-1.</p></div></details>
+          <details class="qa" data-topic="bar"><summary><span class="qn"></span><span class="qt">Does it do takeaway and my own deliveries?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Yes. Parcels get a token number and a packing charge, and your own deliveries can carry a delivery charge with the customer’s address on the order.</p></div></details>
+          <details class="qa" data-topic="bar"><summary><span class="qn"></span><span class="qt">Does it track kitchen stock?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Yes. Link each dish to its recipe and Platera takes the ingredients out of kitchen stock as you sell, warning you when something runs low.</p></div></details>
+          <details class="qa" data-topic="data"><summary><span class="qn"></span><span class="qt">Where is my data kept? Is it safe?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>On your own PC, never on our servers. Platera backs it up automatically to a folder you choose, such as a pen drive or a synced folder.</p></div></details>
+          <details class="qa" data-topic="data"><summary><span class="qn"></span><span class="qt">Can my staff see sales and reports?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Only if you let them. Every user signs in with their own PIN, and reports, prices and settings stay with the owner.</p></div></details>
+          <details class="qa" data-topic="data"><summary><span class="qn"></span><span class="qt">Which printers work?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Any 80 mm or 58 mm thermal printer and A4 printer installed on Windows. Each kitchen station can have its own KOT printer.</p></div></details>
+          <details class="qa" data-topic="plans"><summary><span class="qn"></span><span class="qt">How is Platera priced?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Choose a yearly or a lifetime license after your trial. Ask us on WhatsApp for the price for your restaurant; your key works on the PC it is activated on.</p></div></details>
+          <details class="qa" data-topic="plans"><summary><span class="qn"></span><span class="qt">Will you help me set it up?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Yes. Message us on WhatsApp and we will help you add your tables and menu, connect your printers and get the kitchen screen running.</p></div></details>
+          <p class="faq-empty" hidden>No question matches that. <a data-whatsapp="platera" href="#">Ask us on WhatsApp</a> instead.</p>
+        </div>
+        <div class="faq-help">
+          <div>
+            <b>Still have a question?</b>
+            <p>Ask us on WhatsApp and a real person from Delog Commerce will answer.</p>
+          </div>
+          <a class="btn btn-wa btn-sm" data-whatsapp="platera" href="#">Ask on WhatsApp</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="f-brand">
+        <a class="brand" href="index.html"><span class="brand-word">DELOG</span><span class="brand-div">Commerce</span></a>
+        <p>Platera · Every table, every order, on time.</p>
+      </div>
+      <div class="f-links">
+        <a href="index.html">Tillora</a><a href="#kitchen">Kitchen screen</a><a href="#features">Features</a><a href="#get">Get Platera</a><a data-whatsapp="platera" href="#">WhatsApp</a><a data-email href="#">Email</a>
+      </div>
+      <p class="f-copy">© <span data-year>2026</span> Delog Commerce. All rights reserved.</p>
+    </footer>
+
+    <script src="main.js" defer></script>
+  </body>
+</html>

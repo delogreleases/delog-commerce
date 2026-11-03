@@ -14,6 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="platera.css" />
   </head>
   <body>
     <div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -23,6 +24,10 @@
       <a class="brand" href="#top" aria-label="Delog Commerce home">
         <span class="brand-word">DELOG</span><span class="brand-div">Commerce</span>
       </a>
+      <div class="pmenu" data-product="tillora">
+        <button class="pmenu-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="pmenu-panel"></button>
+        <div class="pmenu-panel" id="pmenu-panel" hidden></div>
+      </div>
       <nav class="nav-links" aria-label="Main">
         <a href="#tillora">Tillora</a>
         <a href="#features">Features</a>
@@ -258,6 +263,22 @@
         </div>
       </section>
 
+      <!-- ===== Platera spotlight ===== -->
+      <section class="sister" id="platera">
+        <div class="sister-card reveal">
+          <div>
+            <div class="kicker">Also from Delog Commerce</div>
+            <div class="sister-brand"><img src="assets/platera-icon.svg" alt="" />Platera</div>
+            <h2>Run a restaurant? <span class="grad-p">Meet Platera.</span></h2>
+            <p>Our restaurant POS: table billing, KOTs to every kitchen station, a kitchen screen, a waiter app and QR ordering from the table. Same care as Tillora, fully offline on your own Wi-Fi.</p>
+            <div class="cta-row">
+              <a class="btn btn-platera btn-lg" href="platera.html">Explore Platera <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+          <a class="sister-shot" href="platera.html" aria-label="Explore Platera"><img src="assets/platera/counter-home.jpg" alt="Platera counter: dishes with food pictures, sections and a bill in progress" loading="lazy" /></a>
+        </div>
+      </section>
+
       <!-- ===== Trial / CTA ===== -->
       <section class="cta reveal" id="download">
         <div class="cta-card">
@@ -282,24 +303,64 @@
         <div>
           <div class="kicker">About us</div>
           <h2>Software that works as hard as you do.</h2>
-          <p>Delog builds practical software for businesses. <b>Delog QA</b> makes testing applications for software teams, and <b>Delog Commerce</b> builds Tillora for the shops that keep every street busy. Fast, honest, made to last.</p>
-          <div class="divisions"><span>Delog QA</span><span class="on">Delog Commerce · Tillora</span></div>
+          <p>Delog builds practical software for businesses. <b>Delog QA</b> makes testing applications for software teams, and <b>Delog Commerce</b> builds Tillora for the shops that keep every street busy and Platera for the restaurants that feed them. Fast, honest, made to last.</p>
+          <div class="divisions"><span>Delog QA</span><span class="on">Delog Commerce · Tillora</span><span class="on"><a href="platera.html">Delog Commerce · Platera</a></span></div>
         </div>
       </section>
 
       <!-- ===== FAQ ===== -->
-      <section class="faq" id="faq">
-        <div class="section-head reveal">
+      <section class="faq2" id="faq">
+        <div class="faq-side reveal">
           <div class="kicker">Questions</div>
-          <h2>Good to know</h2>
+          <h2>Everything you’d <span class="grad">ask us first.</span></h2>
+          <p>Short answers about running Tillora in your shop. Pick a topic or search.</p>
+          <label class="faq-search">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
+            <input type="search" placeholder="Search questions" data-faq-search aria-label="Search questions" />
+          </label>
+          <div class="faq-topics" role="tablist" aria-label="Topics">
+            <button type="button" class="on" data-topic="popular" role="tab" aria-selected="true">Most asked<span data-topic-count="popular"></span></button>
+            <button type="button" class="" data-topic="start" role="tab" aria-selected="false">Getting started<span data-topic-count="start"></span></button>
+            <button type="button" class="" data-topic="billing" role="tab" aria-selected="false">Billing &amp; GST<span data-topic-count="billing"></span></button>
+            <button type="button" class="" data-topic="stock" role="tab" aria-selected="false">Stock &amp; products<span data-topic-count="stock"></span></button>
+            <button type="button" class="" data-topic="customers" role="tab" aria-selected="false">Customers &amp; WhatsApp<span data-topic-count="customers"></span></button>
+            <button type="button" class="" data-topic="data" role="tab" aria-selected="false">Data &amp; safety<span data-topic-count="data"></span></button>
+            <button type="button" class="" data-topic="help" role="tab" aria-selected="false">Printers, price &amp; help<span data-topic-count="help"></span></button>
+          </div>
         </div>
-        <div class="faq-list">
-          <details class="reveal"><summary>Does Tillora need the internet?</summary><p>No. Billing, stock, reports and printing all work fully offline. The internet is only used when you choose to send something on WhatsApp.</p></details>
-          <details class="reveal"><summary>Where is my data kept? Is it safe?</summary><p>On your own PC, never on our servers. Tillora backs it up automatically to a folder you choose, such as a pen drive or a synced folder, and every user signs in with a PIN.</p></details>
-          <details class="reveal"><summary>Is it ready for GST?</summary><p>Yes. Bills show CGST, SGST or IGST with HSN codes, business customers get tax invoices with their GSTIN, and you can export GSTR-1 and the month’s registers for your accountant.</p></details>
-          <details class="reveal"><summary>Which printers and scanners work?</summary><p>Any 80 mm or 58 mm thermal printer, A4 printers and label printers installed on Windows, plus any USB or Bluetooth barcode scanner. A cash drawer on the bill printer opens by itself.</p></details>
-          <details class="reveal"><summary>Can I move from another billing app?</summary><p>Yes. Import your products from Excel with the ready template, and existing ChitTill data can be brought over during setup.</p></details>
-          <details class="reveal"><summary>What happens after the free trial?</summary><p>Ask us for a yearly or lifetime license on WhatsApp from inside the app. Enter the key and carry on; nothing you added during the trial is lost.</p></details>
+        <div class="faq-items">
+          <details class="qa" data-popular data-topic="start"><summary><span class="qn"></span><span class="qt">Does Tillora need the internet?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>No. Billing, stock, reports and printing all work fully offline. The internet is only used when you choose to send something on WhatsApp.</p></div></details>
+          <details class="qa" data-topic="start"><summary><span class="qn"></span><span class="qt">What computer do I need?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>One Windows 10 or 11 PC (64-bit) with 4 GB of RAM or more. No server and no account to create.</p></div></details>
+          <details class="qa" data-topic="start"><summary><span class="qn"></span><span class="qt">How long does setup take?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>About ten minutes. Pick your shop type, add your name and GSTIN, and choose the ready-made categories with their GST rates already filled in.</p></div></details>
+          <details class="qa" data-popular data-topic="start"><summary><span class="qn"></span><span class="qt">Can I move from another billing app?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Yes. Import your products from Excel with the ready template, and existing ChitTill data can be brought over during setup.</p></div></details>
+          <details class="qa" data-popular data-topic="start"><summary><span class="qn"></span><span class="qt">Can I try it before buying?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Yes. Every install starts with a 14-day free trial with every feature, no card and no sign-up. Nothing you add during the trial is lost when you buy.</p></div></details>
+          <details class="qa" data-popular data-topic="billing"><summary><span class="qn"></span><span class="qt">Is it ready for GST?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Yes. Bills show CGST, SGST or IGST with HSN codes, and you can export GSTR-1 and the month’s registers for your accountant.</p></div></details>
+          <details class="qa" data-topic="billing"><summary><span class="qn"></span><span class="qt">Can I give a GST tax invoice to a business customer?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Yes. Add the buyer’s GSTIN at the counter and Tillora prints a B2B tax invoice, with IGST when they are in another state.</p></div></details>
+          <details class="qa" data-topic="billing"><summary><span class="qn"></span><span class="qt">How can customers pay?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Cash with change worked out, UPI with a QR for the exact amount, card, a split across them, or pay later with the due tracked to the rupee.</p></div></details>
+          <details class="qa" data-topic="billing"><summary><span class="qn"></span><span class="qt">How do returns and exchanges work?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Take the item back against its bill and Tillora issues a credit note. The customer can use it on their next bill, and stock goes back on the shelf.</p></div></details>
+          <details class="qa" data-topic="billing"><summary><span class="qn"></span><span class="qt">Can I run offers like Buy 2 Get 1?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Yes. Set up Buy X get Y, percentage off or spend-and-save once, and the counter applies it on every bill by itself.</p></div></details>
+          <details class="qa" data-popular data-topic="stock"><summary><span class="qn"></span><span class="qt">Does it handle sizes and colours?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Yes. Each product keeps its sizes and colours with the pieces left in each, and the counter shows them as a grid so you pick the right one.</p></div></details>
+          <details class="qa" data-topic="stock"><summary><span class="qn"></span><span class="qt">Can I print barcode labels?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Yes. Print labels with the price and barcode on any label printer installed on Windows, for new stock as it comes in.</p></div></details>
+          <details class="qa" data-topic="stock"><summary><span class="qn"></span><span class="qt">Will it tell me when stock runs low?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Yes. Low-stock alerts show what to reorder, and a reorder list by supplier can go to each supplier on WhatsApp.</p></div></details>
+          <details class="qa" data-topic="stock"><summary><span class="qn"></span><span class="qt">Can I record purchases from suppliers?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Yes. Enter a supplier bill and the stock and costs update by themselves, so profit reports stay accurate.</p></div></details>
+          <details class="qa" data-topic="customers"><summary><span class="qn"></span><span class="qt">Does it have loyalty points?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Yes. Customers earn points on every bill and use them on the next one. VIP, regular and at-risk groups show who to look after.</p></div></details>
+          <details class="qa" data-topic="customers"><summary><span class="qn"></span><span class="qt">Can I send bills on WhatsApp?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Yes. Send the bill, birthday wishes, due reminders and offers from your own WhatsApp, with ready-made messages.</p></div></details>
+          <details class="qa" data-topic="customers"><summary><span class="qn"></span><span class="qt">What is the customer screen?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>A second screen facing the customer shows the bill as it builds and a UPI QR to scan. Customers trust what they can see.</p></div></details>
+          <details class="qa" data-topic="data"><summary><span class="qn"></span><span class="qt">Where is my data kept? Is it safe?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>On your own PC, never on our servers. Tillora backs it up automatically to a folder you choose, such as a pen drive or a synced folder.</p></div></details>
+          <details class="qa" data-topic="data"><summary><span class="qn"></span><span class="qt">Can my staff see profits and reports?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Only if you let them. Every user signs in with their own PIN, and reports, costs and settings stay with the owner.</p></div></details>
+          <details class="qa" data-topic="data"><summary><span class="qn"></span><span class="qt">What if I forget my PIN?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Use the recovery key you saved during setup to get back in and set a new PIN. Your data stays as it was.</p></div></details>
+          <details class="qa" data-popular data-topic="help"><summary><span class="qn"></span><span class="qt">Which printers and scanners work?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Any 80 mm or 58 mm thermal printer, A4 printers and label printers installed on Windows, plus any USB or Bluetooth barcode scanner.</p></div></details>
+          <details class="qa" data-topic="help"><summary><span class="qn"></span><span class="qt">Does the cash drawer open by itself?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Yes. A cash drawer connected to the bill printer opens when a cash bill is saved.</p></div></details>
+          <details class="qa" data-topic="help"><summary><span class="qn"></span><span class="qt">How is Tillora priced?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>After the trial, choose a yearly or a lifetime license. Ask us on WhatsApp from inside the app; enter the key and carry on.</p></div></details>
+          <details class="qa" data-topic="help"><summary><span class="qn"></span><span class="qt">Will you help me set it up?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Yes. Message us on WhatsApp and we will help you import your products, connect your printers and bill your first customer.</p></div></details>
+          <p class="faq-empty" hidden>No question matches that. <a data-whatsapp href="#">Ask us on WhatsApp</a> instead.</p>
+        </div>
+        <div class="faq-help">
+          <div>
+            <b>Still have a question?</b>
+            <p>Ask us on WhatsApp and a real person from Delog Commerce will answer.</p>
+          </div>
+          <a class="btn btn-wa btn-sm" data-whatsapp href="#">Ask on WhatsApp</a>
         </div>
       </section>
     </main>
@@ -310,7 +371,7 @@
         <p>Tillora · Billing that sells for you.</p>
       </div>
       <div class="f-links">
-        <a href="#features">Features</a><a href="#screens">Screens</a><a href="#shops">Shops</a><a href="#download">Download</a><a data-whatsapp href="#">WhatsApp</a><a data-email href="#">Email</a>
+        <a href="#features">Features</a><a href="#screens">Screens</a><a href="#shops">Shops</a><a href="#download">Download</a><a href="platera.html">Platera for restaurants</a><a data-whatsapp href="#">WhatsApp</a><a data-email href="#">Email</a>
       </div>
       <p class="f-copy">© <span data-year>2026</span> Delog Commerce. All rights reserved.</p>
     </footer>
