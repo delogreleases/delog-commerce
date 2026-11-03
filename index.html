@@ -3,20 +3,29 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Tillora by Delog Commerce · Billing that sells for you</title>
-    <meta name="description" content="Tillora is a fast, beautiful billing and stock app for Indian retail shops: GST bills, barcode scanning, WhatsApp receipts and smart reports. Works 100% offline on Windows." />
-    <meta property="og:title" content="Tillora by Delog Commerce" />
-    <meta property="og:description" content="Billing that sells for you. GST-ready, works fully offline, made for every kind of shop." />
+    <title>Delog Commerce · Billing software for India’s shops and restaurants</title>
+    <meta name="description" content="Delog Commerce makes Tillora for retail shops and Platera for restaurants: fast billing apps for Windows that work without the internet and keep your data on your own PC." />
+    <meta property="og:title" content="Delog Commerce" />
+    <meta property="og:description" content="Billing software for India’s shops and restaurants. Works offline, your data stays yours." />
     <meta property="og:image" content="assets/screens/counter.jpg" />
     <meta name="theme-color" content="#0b0d1a" />
     <link rel="icon" href="assets/tillora-icon.svg" type="image/svg+xml" />
+    <script>
+      // This page used to be Tillora's. Old links to its sections (index.html#download, #faq…) go to the Tillora page.
+      ;(function () {
+        var h = location.hash.slice(1)
+        if (h === 'platera') location.replace('platera.html')
+        else if (['tillora', 'counter', 'features', 'screens', 'shops', 'download', 'faq'].indexOf(h) >= 0) location.replace('tillora.html#' + h)
+      })()
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="platera.css" />
+    <link rel="stylesheet" href="styles.css?v=20261103-4" />
+    <link rel="stylesheet" href="platera.css?v=20261103-4" />
+    <link rel="stylesheet" href="home.css?v=20261103-4" />
   </head>
-  <body>
+  <body class="home">
     <div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
 
     <!-- ===== Navigation ===== -->
@@ -24,343 +33,135 @@
       <a class="brand" href="#top" aria-label="Delog Commerce home">
         <span class="brand-word">DELOG</span><span class="brand-div">Commerce</span>
       </a>
-      <div class="pmenu" data-product="tillora">
-        <button class="pmenu-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="pmenu-panel"></button>
-        <div class="pmenu-panel" id="pmenu-panel" hidden></div>
-      </div>
       <nav class="nav-links" aria-label="Main">
-        <a href="#tillora">Tillora</a>
-        <a href="#features">Features</a>
-        <a href="#screens">Screens</a>
-        <a href="#shops">For your shop</a>
-        <a href="#faq">FAQ</a>
+        <a href="#products">Products</a>
+        <a href="#promises">Why us</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
       </nav>
-      <a class="btn btn-primary btn-sm" data-download href="#download">Get Tillora</a>
+      <a class="btn btn-primary btn-sm" data-whatsapp="home" href="#">Talk to us</a>
       <button class="nav-menu" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
     </header>
 
     <main>
       <!-- ===== Hero ===== -->
-      <section class="hero" id="tillora">
-        <div class="hero-copy reveal">
-          <div class="eyebrow"><img src="assets/tillora-icon.svg" alt="" width="22" height="22" /> Delog Commerce presents <b>Tillora</b></div>
-          <h1>Billing that <span class="grad">sells for you.</span></h1>
-          <p class="lead">A fast, beautiful billing and stock app for Indian retail shops. GST bills, barcode scanning, WhatsApp receipts and smart reports, and it works <b>100% offline</b>.</p>
+      <section class="home-hero">
+        <div>
+          <div class="eyebrow">Delog Commerce · made for India</div>
+          <h1>Billing software for India’s <span class="grad">shops and restaurants.</span></h1>
+          <p class="lead">Delog Commerce makes fast, simple billing apps that run on your own PC, work without the internet and keep your data in your hands.</p>
           <div class="cta-row">
-            <a class="btn btn-primary btn-lg" data-download href="#download">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.3 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.3z" fill="currentColor" /></svg>
-              Download for Windows
-            </a>
-            <a class="btn btn-ghost btn-lg" href="#screens">See it in action <span aria-hidden="true">→</span></a>
+            <a class="btn btn-primary btn-lg" href="#products">Explore our products <span aria-hidden="true">↓</span></a>
+            <a class="btn btn-ghost btn-lg" data-whatsapp="home" href="#">Talk to us</a>
           </div>
           <ul class="trust">
+            <li><i></i>Works offline</li>
+            <li><i></i>Your data on your PC</li>
+            <li><i></i>GST-ready</li>
             <li><i></i>14-day free trial</li>
-            <li><i></i>GST-ready bills</li>
-            <li><i></i>No internet needed</li>
           </ul>
         </div>
+        <div class="hero-windows" aria-hidden="true">
+          <figure class="hw-back"><img src="assets/screens/counter.jpg" alt="" /></figure>
+          <figure class="hw-front"><img src="assets/platera/counter-home.jpg" alt="" /></figure>
+          <div class="hw-chip hw-c1"><b>✓</b>Works with no internet</div>
+          <div class="hw-chip hw-c2"><b>₹</b>GST bill printed</div>
+        </div>
+      </section>
 
-        <div class="stage reveal" data-tilt-stage>
-          <div class="floor" aria-hidden="true"></div>
-          <div class="scene">
-            <div class="laptop">
-              <div class="lid">
-                <div class="bezel"><img src="assets/screens/counter.jpg" alt="Tillora billing counter with a customer, their usual sizes and a bill in progress" /></div>
-              </div>
-              <div class="base"><span></span></div>
-            </div>
-
-            <div class="float f-receipt" aria-hidden="true">
-              <div class="r-shop">Sri Lakshmi Stores</div>
-              <div class="r-line"><span>Basmati rice 1 kg × 2</span><span>298.00</span></div>
-              <div class="r-line"><span>Biscuits family pack</span><span>60.00</span></div>
-              <div class="r-line"><span>Toothpaste 150 g</span><span>95.00</span></div>
-              <div class="r-dash"></div>
-              <div class="r-total"><span>TOTAL</span><span>₹453.00</span></div>
-              <div class="r-paid">✓ Paid by UPI</div>
-              <div class="r-tear"></div>
-            </div>
-
-            <div class="float f-stat" aria-hidden="true">
-              <div class="f-label"><i class="dot"></i>TODAY</div>
-              <div class="f-big">₹48,260</div>
-              <div class="f-up">↗ 16% vs yesterday</div>
-              <svg viewBox="0 0 120 34" class="spark"><path d="M0 28 C15 26 20 10 35 14 S55 30 70 20 S95 4 120 8" /></svg>
-            </div>
-
-            <div class="float f-qr" aria-hidden="true">
-              <div class="qr"></div>
-              <div><div class="f-label">SCAN TO PAY</div><div class="f-mid">₹1,782.00</div></div>
-            </div>
-
-            <div class="float f-wa" aria-hidden="true">
-              <span class="wa-ico"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.7 14.9L2 22l5.2-1.3A10 10 0 1 0 12 2Zm5.6 14.1c-.2.7-1.4 1.3-2 1.4-.5 0-1.1.1-1.8-.1l-1.7-.6c-2.9-1.3-4.8-4.2-5-4.4-.1-.2-1.2-1.6-1.2-3s.8-2.1 1-2.4c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.2c.1.1.1.3 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 2 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l2 .9c.3.1.5.2.5.3.1.2.1.7-.1 1.4Z" /></svg></span>
-              <div><div class="f-mid">Bill sent on WhatsApp</div><div class="f-small">to Arun · just now</div></div>
-            </div>
+      <!-- ===== Products: one door each ===== -->
+      <section class="doors" id="products" data-doors>
+        <div class="doors-head">
+          <div>
+            <div class="kicker">Our products</div>
+            <h2>One company. <span class="grad">Pick your door.</span></h2>
+            <p>Each one is a complete app for its kind of business, with its own 14-day free trial.</p>
+          </div>
+          <div class="door-arrows">
+            <button type="button" data-door-prev aria-label="Previous product"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6" /></svg></button>
+            <button type="button" data-door-next aria-label="Next product"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg></button>
           </div>
         </div>
+        <div class="door-track" tabindex="0" aria-label="Our products"></div>
+        <div class="door-dots"></div>
+        <noscript><p class="doors-plain"><a href="tillora.html">Tillora for retail shops</a> · <a href="platera.html">Platera for restaurants</a></p></noscript>
       </section>
 
-      <!-- ===== Marquee ===== -->
-      <div class="marquee" aria-hidden="true">
-        <div class="marquee-track">
-          <span>GST &amp; HSN ready</span><span>Barcode scanning</span><span>Sizes &amp; colours</span><span>WhatsApp bills</span><span>UPI QR on screen</span><span>Loyalty points</span><span>Offers apply themselves</span><span>Customer screen</span><span>Daily backups</span><span>Works offline</span>
-          <span>GST &amp; HSN ready</span><span>Barcode scanning</span><span>Sizes &amp; colours</span><span>WhatsApp bills</span><span>UPI QR on screen</span><span>Loyalty points</span><span>Offers apply themselves</span><span>Customer screen</span><span>Daily backups</span><span>Works offline</span>
-        </div>
-      </div>
-
-      <!-- ===== Counter spotlight ===== -->
-      <section class="split" id="counter">
-        <div class="split-copy reveal">
-          <div class="kicker">The counter</div>
-          <h2>Bill a queue of customers <span class="grad">without breaking a sweat.</span></h2>
-          <p>Scan a barcode or tap a tile. Tillora shows every size and colour with what is left, remembers what each customer usually buys, and puts a UPI QR for the exact amount on the customer’s screen.</p>
-          <ul class="ticks">
-            <li><b>Scan, tap or type</b>: “3*” before a code adds three at once</li>
-            <li><b>Cash, UPI, card, split or pay later</b>, with change worked out</li>
-            <li><b>Repeat last bill</b> for regulars in one click</li>
-            <li><b>Hold a bill</b> and serve the next customer</li>
-            <li><b>Keyboard first</b>: F1 to F8 for everything</li>
-          </ul>
-        </div>
-        <div class="stack reveal" data-tilt>
-          <img class="stack-back" src="assets/screens/sizes-window.jpg" alt="Size and colour grid showing pieces left for each size" loading="lazy" />
-          <img class="stack-front" src="assets/screens/payment-window.jpg" alt="Payment window with a UPI QR for the exact bill amount" loading="lazy" />
+      <!-- ===== Who we are ===== -->
+      <section class="about reveal" id="about">
+        <div class="about-mark"><span class="brand-word">DELOG</span></div>
+        <div>
+          <div class="kicker">Who we are</div>
+          <h2>Software that works as hard as you do.</h2>
+          <p>Delog Commerce builds simple, fast billing apps that run on your own PC, work without the internet and keep your data in your hands. <b>Tillora</b> is for the shops that keep every street busy, and <b>Platera</b> for the restaurants that feed them.</p>
+          <p>We’re part of Delog, which builds practical software for businesses: <b>Delog QA</b> makes testing applications for software teams, and <b>Delog Commerce</b> makes software for shops. Fast, honest, made to last.</p>
         </div>
       </section>
 
-      <!-- ===== Features bento ===== -->
-      <section class="features" id="features">
+      <!-- ===== What we promise ===== -->
+      <section id="promises">
         <div class="section-head reveal">
-          <div class="kicker">Everything a shop needs</div>
-          <h2>One app. <span class="grad">The whole shop.</span></h2>
-          <p>From the first scan of the morning to the cash count at night: billing, stock, customers, offers and reports, all in one place.</p>
+          <div class="kicker">Why us</div>
+          <h2>What we promise <span class="grad">every shop.</span></h2>
         </div>
-        <div class="bento">
-          <article class="card c-wide reveal" data-tilt>
-            <div class="ico i-violet"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z M8 9h8 M8 13h8 M8 17h5" /></svg></div>
-            <h3>GST bills done right</h3>
-            <p>CGST, SGST and IGST worked out per line, HSN on every bill, B2B tax invoices with the buyer’s GSTIN, and the garment and footwear 5% / 18% slab handled for you.</p>
-            <div class="chips"><span>GSTR-1 export</span><span>HSN summary</span><span>Credit notes</span></div>
+        <div class="promises">
+          <article class="card reveal" data-tilt>
+            <div class="ico i-violet"><svg viewBox="0 0 24 24"><path d="M2 8.5a15 15 0 0 1 20 0M5 12a10 10 0 0 1 14 0M8.5 15.5a5 5 0 0 1 7 0M12 19h.01" /></svg></div>
+            <h3>Works offline</h3>
+            <p>No internet needed to bill, print or even activate. A slow connection never stops your counter.</p>
           </article>
           <article class="card reveal" data-tilt>
-            <div class="ico i-green"><svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4-9 4zM3 7v10l9 4 9-4V7M12 11v10" /></svg></div>
-            <h3>Stock by size &amp; colour</h3>
-            <p>Know exactly what is on the shelf. Low-stock alerts, purchases, barcode labels and reorder lists sent to suppliers on WhatsApp.</p>
+            <div class="ico i-green"><svg viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2" /><path d="M8 11V7a4 4 0 0 1 8 0v4" /></svg></div>
+            <h3>Your data stays yours</h3>
+            <p>Bills, stock and customers live on your own PC, with backups you control. No cloud lock-in.</p>
           </article>
           <article class="card reveal" data-tilt>
-            <div class="ico i-wa"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-7.8 13.4L3 21l4.7-1.2A9 9 0 1 0 12 3z" /></svg></div>
-            <h3>WhatsApp that sells</h3>
-            <p>Send bills, birthday wishes, due reminders and offers from your own WhatsApp, with ready-made messages.</p>
+            <div class="ico i-amber"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2zM9 8h6M9 12h6M9 16h3" /></svg></div>
+            <h3>GST-ready from day one</h3>
+            <p>GST bills, GST reports and GSTR-1 for your accountant, built in.</p>
           </article>
           <article class="card reveal" data-tilt>
-            <div class="ico i-pink"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z" /></svg></div>
-            <h3>Customers who come back</h3>
-            <p>Loyalty points, VIP and at-risk groups, what each customer usually buys, and pay-later dues tracked to the rupee.</p>
+            <div class="ico i-wa"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.9 7L4 20l1.1-4.6A8 8 0 1 1 21 12z" /></svg></div>
+            <h3>People, not tickets</h3>
+            <p>Real help on WhatsApp and phone, Mon–Sat, 10 am – 7 pm. We help you set up too.</p>
           </article>
           <article class="card reveal" data-tilt>
-            <div class="ico i-amber"><svg viewBox="0 0 24 24"><path d="M20 12l-8 8-8-8V4h8z M8 8h.01" /></svg></div>
-            <h3>Offers apply themselves</h3>
-            <p>Buy 2 get 1, festival % off, spend-and-save. Set it once and the counter works it out on every bill.</p>
+            <div class="ico i-pink"><svg viewBox="0 0 24 24"><path d="M4 11h16v10H4zM3 7h18v4H3zM12 7v14M12 7S10.5 3 8 3.5 7 7 12 7zM12 7s1.5-4 4-3.5S17 7 12 7z" /></svg></div>
+            <h3>Try before you pay</h3>
+            <p>Every product starts with a 14-day free trial with every feature. No card, no sign-up.</p>
           </article>
-          <article class="card c-wide reveal" data-tilt>
-            <div class="ico i-blue"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2" /></svg></div>
-            <h3>Reports that think for you</h3>
-            <p>Sales, profit, GST and staff reports, a live home dashboard with smart insights, and a one-click <b>accountant pack</b>: the month’s registers and GSTR-1 in one folder.</p>
-            <div class="chips"><span>Profit by category</span><span>Day close</span><span>Excel &amp; PDF</span></div>
-          </article>
-          <article class="card c-wide reveal" data-tilt>
-            <div class="ico i-cyan"><svg viewBox="0 0 24 24"><path d="M3 4h12v10H3zM17 8h4v12h-8v-3M7 18h4" /></svg></div>
-            <h3>Customer screen</h3>
-            <p>A second screen shows the bill as it builds and a UPI QR to scan. Customers trust what they can see.</p>
-          </article>
-          <article class="card c-wide reveal" data-tilt>
-            <div class="ico i-slate"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z M9 12l2 2 4-4" /></svg></div>
-            <h3>Safe, private, offline</h3>
-            <p>Your data stays on your PC. Daily automatic backups, PIN sign-in for every user, and a recovery key if a PIN is forgotten.</p>
+          <article class="card reveal" data-tilt>
+            <div class="ico i-blue"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z" /></svg></div>
+            <h3>Fast on everyday PCs</h3>
+            <p>Load-tested with a full year of history: 100,000 shop bills and 56,000 restaurant bills.</p>
           </article>
         </div>
       </section>
 
-      <!-- ===== Screens carousel ===== -->
-      <section class="screens" id="screens">
-        <div class="section-head reveal">
-          <div class="kicker">Take a look</div>
-          <h2>Designed to be a <span class="grad">pleasure to use.</span></h2>
-          <p>Every screen is built for speed at a busy counter, and to look good doing it.</p>
-        </div>
-        <div class="coverflow reveal" tabindex="0" aria-roledescription="carousel" aria-label="Tillora screenshots">
-          <figure data-title="The counter" data-text="Scan, tap or search. Sizes, customers and offers right where you need them."><img src="assets/screens/counter.jpg" alt="Billing counter" loading="lazy" /></figure>
-          <figure data-title="Take payment" data-text="Cash, UPI with a live QR, card, split or pay later."><img src="assets/screens/payment.jpg" alt="Payment window" loading="lazy" /></figure>
-          <figure data-title="Home dashboard" data-text="Today’s sales, goals and smart insights the moment you sign in."><img src="assets/screens/dashboard.jpg" alt="Home dashboard" loading="lazy" /></figure>
-          <figure data-title="Reports" data-text="Sales, profit, GST and staff, with an accountant pack in one click."><img src="assets/screens/reports.jpg" alt="Sales report" loading="lazy" /></figure>
-          <figure data-title="Every category at a glance" data-text="Stock health, best sellers and a 12-week sales trend for each category."><img src="assets/screens/category.jpg" alt="Category panel" loading="lazy" /></figure>
-          <figure data-title="Products" data-text="Every product with its sizes, price and stock. Import from Excel in minutes."><img src="assets/screens/products.jpg" alt="Products list" loading="lazy" /></figure>
-          <figure data-title="Stock" data-text="What is on the shelf right now, size by size, with low-stock alerts."><img src="assets/screens/stock.jpg" alt="Stock list" loading="lazy" /></figure>
-          <figure data-title="Customers" data-text="VIPs, regulars and who owes money, with WhatsApp reminders."><img src="assets/screens/customers.jpg" alt="Customers list" loading="lazy" /></figure>
-          <figure data-title="Change prices in bulk" data-text="Raise a whole category by 10%, rounded to ₹…9, with a preview first."><img src="assets/screens/bulk-price.jpg" alt="Bulk price change preview" loading="lazy" /></figure>
-          <figure data-title="Ready-made categories" data-text="A full category list for your kind of shop, GST and HSN filled in."><img src="assets/screens/categories.jpg" alt="Ready-made categories" loading="lazy" /></figure>
-        </div>
-        <div class="cf-caption" aria-live="polite"><h3></h3><p></p></div>
-        <div class="cf-controls">
-          <button class="cf-btn" data-cf="-1" aria-label="Previous screenshot">←</button>
-          <div class="cf-dots"></div>
-          <button class="cf-btn" data-cf="1" aria-label="Next screenshot">→</button>
-        </div>
-      </section>
-
-      <!-- ===== Shops ===== -->
-      <section class="shops" id="shops">
-        <div class="section-head reveal">
-          <div class="kicker">Made for your shop</div>
-          <h2>Pick your shop type. <span class="grad">Tillora sets itself up.</span></h2>
-          <p>Categories with the right GST rates, sizes that make sense, and the extras your trade needs.</p>
-        </div>
-        <div class="shop-grid">
-          <div class="shop reveal" data-tilt><span class="s-ico" style="--a:#d946ef;--b:#ec4899"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg></span><h3>Clothing &amp; fashion</h3><p>Sizes &amp; colours, garment GST slab, alteration tickets, customers’ sizes.</p></div>
-          <div class="shop reveal" data-tilt><span class="s-ico" style="--a:#10b981;--b:#0d9488"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 11-1 9"/><path d="m19 11-4-7"/><path d="M2 11h20"/><path d="m3.5 11 1.6 7.4a2 2 0 0 0 2 1.6h9.8a2 2 0 0 0 2-1.6l1.7-7.4"/><path d="M4.5 15.5h15"/><path d="m5 11 4-7"/><path d="m9 11 1 9"/></svg></span><h3>Supermarket</h3><p>26 ready categories from rice to detergents, 0% to 40% GST set for you.</p></div>
-          <div class="shop reveal" data-tilt><span class="s-ico" style="--a:#0ea5e9;--b:#2563eb"><svg viewBox="0 0 24 24" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2"/><path d="M12 18h.01"/></svg></span><h3>Electronics &amp; mobiles</h3><p>Phones, chargers, cables and appliances; maker barcodes scan straight in.</p></div>
-          <div class="shop reveal" data-tilt><span class="s-ico" style="--a:#f59e0b;--b:#ea580c"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.38c0-2.12 1.03-3.12 1-5.62-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4"/><path d="M4 13h4"/></svg></span><h3>Footwear</h3><p>UK sizes, footwear GST slab, and each customer’s shoe size remembered.</p></div>
-          <div class="shop reveal" data-tilt><span class="s-ico" style="--a:#6366f1;--b:#7c3aed"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span><h3>Books &amp; stationery</h3><p>Nil-rated notebooks and books next to 18% pens and files, all correct.</p></div>
-          <div class="shop reveal" data-tilt><span class="s-ico" style="--a:#f43f5e;--b:#dc2626"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/></svg></span><h3>Gifts, toys &amp; cosmetics</h3><p>Festival offers, gift-wrap friendly bills and loyalty points that bring them back.</p></div>
-        </div>
-      </section>
-
-      <!-- ===== Numbers ===== -->
-      <section class="numbers reveal">
-        <div class="num"><b data-count="1" data-prefix="&lt;" data-suffix=" ms">&lt;1 ms</b><span>to find a scanned barcode</span></div>
-        <div class="num"><b data-count="2" data-prefix="~" data-suffix=" s">~2 s</b><span>from click to counter</span></div>
-        <div class="num"><b data-count="174">174</b><span>automated tests on every build</span></div>
-        <div class="num"><b data-count="0">0</b><span>internet needed to bill</span></div>
-      </section>
-
-      <!-- ===== Steps ===== -->
+      <!-- ===== Getting started ===== -->
       <section class="steps-wrap">
         <div class="section-head reveal">
-          <div class="kicker">Up and running today</div>
+          <div class="kicker">Getting started</div>
           <h2>Three steps. <span class="grad">About ten minutes.</span></h2>
         </div>
         <div class="steps">
-          <div class="step reveal" data-tilt><span class="step-n">1</span><h3>Download &amp; install</h3><p>One installer for Windows 10 and 11. No server, no account, no internet needed.</p></div>
-          <div class="step reveal" data-tilt><span class="step-n">2</span><h3>Set up in two minutes</h3><p>Pick your shop type, add your name and GSTIN, choose ready-made categories.</p></div>
-          <div class="step reveal" data-tilt><span class="step-n">3</span><h3>Start billing</h3><p>Import products from Excel or add them as you go. Print labels and bill your first customer.</p></div>
-        </div>
-        <div class="setup-shot reveal"><img src="assets/screens/setup.jpg" alt="Setup wizard: choose your shop type and Tillora sets itself up for it" loading="lazy" /></div>
-      </section>
-
-      <!-- ===== Light / dark compare ===== -->
-      <section class="compare-wrap">
-        <div class="section-head reveal">
-          <div class="kicker">Your shop, your look</div>
-          <h2>Light, dark <span class="grad">or pure black.</span></h2>
-          <p>Drag to compare. Bright for sunny shop floors, dark for late evenings, AMOLED to save power.</p>
-        </div>
-        <div class="compare reveal" style="--pos: 50%">
-          <img src="assets/screens/counter-light.jpg" alt="Tillora in the light theme" loading="lazy" />
-          <div class="compare-top"><img src="assets/screens/counter.jpg" alt="Tillora in the dark theme" loading="lazy" /></div>
-          <input type="range" min="0" max="100" value="50" aria-label="Compare light and dark themes" />
-          <div class="compare-handle" aria-hidden="true"><span>⇆</span></div>
+          <div class="step reveal"><span class="step-n">1</span><h3>Download</h3><p>Pick your product above and install it on your billing PC in a few minutes.</p></div>
+          <div class="step reveal"><span class="step-n">2</span><h3>Set up with us</h3><p>We help you add your products, tables and printers on WhatsApp.</p></div>
+          <div class="step reveal"><span class="step-n">3</span><h3>Activate offline</h3><p>Send us a code, get a key back, done. No internet needed.</p></div>
         </div>
       </section>
 
-      <!-- ===== Platera spotlight ===== -->
-      <section class="sister" id="platera">
-        <div class="sister-card reveal">
-          <div>
-            <div class="kicker">Also from Delog Commerce</div>
-            <div class="sister-brand"><img src="assets/platera-icon.svg" alt="" />Platera</div>
-            <h2>Run a restaurant? <span class="grad-p">Meet Platera.</span></h2>
-            <p>Our restaurant POS: table billing, KOTs to every kitchen station, a kitchen screen, a waiter app and QR ordering from the table. Same care as Tillora, fully offline on your own Wi-Fi.</p>
-            <div class="cta-row">
-              <a class="btn btn-platera btn-lg" href="platera.html">Explore Platera <span aria-hidden="true">→</span></a>
-            </div>
-          </div>
-          <a class="sister-shot" href="platera.html" aria-label="Explore Platera"><img src="assets/platera/counter-home.jpg" alt="Platera counter: dishes with food pictures, sections and a bill in progress" loading="lazy" /></a>
-        </div>
-      </section>
-
-      <!-- ===== Trial / CTA ===== -->
-      <section class="cta reveal" id="download">
+      <!-- ===== Contact ===== -->
+      <section class="cta reveal" id="contact">
         <div class="cta-card">
           <div class="cta-glow" aria-hidden="true"></div>
-          <img src="assets/tillora-icon.svg" alt="" width="72" height="72" class="cta-icon" />
-          <h2>Try Tillora free for 14 days</h2>
-          <p>Every feature, no card, no sign-up. When you are ready, choose a yearly or lifetime license and keep everything you have built.</p>
+          <h2>Not sure which one fits? Ask us.</h2>
+          <p>Tell us about your shop or restaurant and a real person from Delog Commerce will answer.</p>
           <div class="cta-row center">
-            <a class="btn btn-white btn-lg" data-download href="#">Download for Windows</a>
-            <a class="btn btn-wa btn-lg" data-whatsapp href="#">Talk to us on WhatsApp</a>
+            <a class="btn btn-white btn-lg" data-whatsapp="home" href="#">Chat on WhatsApp</a>
+            <a class="btn btn-ghost btn-lg" data-email href="#">Email us</a>
           </div>
-          <div class="reqs">
-            <span>Windows 10 or 11 (64-bit)</span><span>4 GB RAM or more</span><span>Thermal, A4 &amp; label printers</span><span>Any USB barcode scanner</span>
-          </div>
-          <p class="note">Windows may show “Windows protected your PC” the first time. Click <b>More info → Run anyway</b>.</p>
-        </div>
-      </section>
-
-      <!-- ===== About ===== -->
-      <section class="about reveal">
-        <div class="about-mark"><span class="brand-word">DELOG</span></div>
-        <div>
-          <div class="kicker">About us</div>
-          <h2>Software that works as hard as you do.</h2>
-          <p>Delog builds practical software for businesses. <b>Delog QA</b> makes testing applications for software teams, and <b>Delog Commerce</b> builds Tillora for the shops that keep every street busy and Platera for the restaurants that feed them. Fast, honest, made to last.</p>
-          <div class="divisions"><span>Delog QA</span><span class="on">Delog Commerce · Tillora</span><span class="on"><a href="platera.html">Delog Commerce · Platera</a></span></div>
-        </div>
-      </section>
-
-      <!-- ===== FAQ ===== -->
-      <section class="faq2" id="faq">
-        <div class="faq-side reveal">
-          <div class="kicker">Questions</div>
-          <h2>Everything you’d <span class="grad">ask us first.</span></h2>
-          <p>Short answers about running Tillora in your shop. Pick a topic or search.</p>
-          <label class="faq-search">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
-            <input type="search" placeholder="Search questions" data-faq-search aria-label="Search questions" />
-          </label>
-          <div class="faq-topics" role="tablist" aria-label="Topics">
-            <button type="button" class="on" data-topic="popular" role="tab" aria-selected="true">Most asked<span data-topic-count="popular"></span></button>
-            <button type="button" class="" data-topic="start" role="tab" aria-selected="false">Getting started<span data-topic-count="start"></span></button>
-            <button type="button" class="" data-topic="billing" role="tab" aria-selected="false">Billing &amp; GST<span data-topic-count="billing"></span></button>
-            <button type="button" class="" data-topic="stock" role="tab" aria-selected="false">Stock &amp; products<span data-topic-count="stock"></span></button>
-            <button type="button" class="" data-topic="customers" role="tab" aria-selected="false">Customers &amp; WhatsApp<span data-topic-count="customers"></span></button>
-            <button type="button" class="" data-topic="data" role="tab" aria-selected="false">Data &amp; safety<span data-topic-count="data"></span></button>
-            <button type="button" class="" data-topic="help" role="tab" aria-selected="false">Printers, price &amp; help<span data-topic-count="help"></span></button>
-          </div>
-        </div>
-        <div class="faq-items">
-          <details class="qa" data-popular data-topic="start"><summary><span class="qn"></span><span class="qt">Does Tillora need the internet?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>No. Billing, stock, reports and printing all work fully offline. The internet is only used when you choose to send something on WhatsApp.</p></div></details>
-          <details class="qa" data-topic="start"><summary><span class="qn"></span><span class="qt">What computer do I need?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>One Windows 10 or 11 PC (64-bit) with 4 GB of RAM or more. No server and no account to create.</p></div></details>
-          <details class="qa" data-topic="start"><summary><span class="qn"></span><span class="qt">How long does setup take?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>About ten minutes. Pick your shop type, add your name and GSTIN, and choose the ready-made categories with their GST rates already filled in.</p></div></details>
-          <details class="qa" data-popular data-topic="start"><summary><span class="qn"></span><span class="qt">Can I move from another billing app?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Yes. Import your products from Excel with the ready template, and existing ChitTill data can be brought over during setup.</p></div></details>
-          <details class="qa" data-popular data-topic="start"><summary><span class="qn"></span><span class="qt">Can I try it before buying?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Yes. Every install starts with a 14-day free trial with every feature, no card and no sign-up. Nothing you add during the trial is lost when you buy.</p></div></details>
-          <details class="qa" data-popular data-topic="billing"><summary><span class="qn"></span><span class="qt">Is it ready for GST?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Yes. Bills show CGST, SGST or IGST with HSN codes, and you can export GSTR-1 and the month’s registers for your accountant.</p></div></details>
-          <details class="qa" data-topic="billing"><summary><span class="qn"></span><span class="qt">Can I give a GST tax invoice to a business customer?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Yes. Add the buyer’s GSTIN at the counter and Tillora prints a B2B tax invoice, with IGST when they are in another state.</p></div></details>
-          <details class="qa" data-topic="billing"><summary><span class="qn"></span><span class="qt">How can customers pay?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Cash with change worked out, UPI with a QR for the exact amount, card, a split across them, or pay later with the due tracked to the rupee.</p></div></details>
-          <details class="qa" data-topic="billing"><summary><span class="qn"></span><span class="qt">How do returns and exchanges work?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Take the item back against its bill and Tillora issues a credit note. The customer can use it on their next bill, and stock goes back on the shelf.</p></div></details>
-          <details class="qa" data-topic="billing"><summary><span class="qn"></span><span class="qt">Can I run offers like Buy 2 Get 1?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Yes. Set up Buy X get Y, percentage off or spend-and-save once, and the counter applies it on every bill by itself.</p></div></details>
-          <details class="qa" data-popular data-topic="stock"><summary><span class="qn"></span><span class="qt">Does it handle sizes and colours?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Yes. Each product keeps its sizes and colours with the pieces left in each, and the counter shows them as a grid so you pick the right one.</p></div></details>
-          <details class="qa" data-topic="stock"><summary><span class="qn"></span><span class="qt">Can I print barcode labels?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Yes. Print labels with the price and barcode on any label printer installed on Windows, for new stock as it comes in.</p></div></details>
-          <details class="qa" data-topic="stock"><summary><span class="qn"></span><span class="qt">Will it tell me when stock runs low?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Yes. Low-stock alerts show what to reorder, and a reorder list by supplier can go to each supplier on WhatsApp.</p></div></details>
-          <details class="qa" data-topic="stock"><summary><span class="qn"></span><span class="qt">Can I record purchases from suppliers?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Yes. Enter a supplier bill and the stock and costs update by themselves, so profit reports stay accurate.</p></div></details>
-          <details class="qa" data-topic="customers"><summary><span class="qn"></span><span class="qt">Does it have loyalty points?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Yes. Customers earn points on every bill and use them on the next one. VIP, regular and at-risk groups show who to look after.</p></div></details>
-          <details class="qa" data-topic="customers"><summary><span class="qn"></span><span class="qt">Can I send bills on WhatsApp?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Yes. Send the bill, birthday wishes, due reminders and offers from your own WhatsApp, with ready-made messages.</p></div></details>
-          <details class="qa" data-topic="customers"><summary><span class="qn"></span><span class="qt">What is the customer screen?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>A second screen facing the customer shows the bill as it builds and a UPI QR to scan. Customers trust what they can see.</p></div></details>
-          <details class="qa" data-topic="data"><summary><span class="qn"></span><span class="qt">Where is my data kept? Is it safe?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>On your own PC, never on our servers. Tillora backs it up automatically to a folder you choose, such as a pen drive or a synced folder.</p></div></details>
-          <details class="qa" data-topic="data"><summary><span class="qn"></span><span class="qt">Can my staff see profits and reports?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Only if you let them. Every user signs in with their own PIN, and reports, costs and settings stay with the owner.</p></div></details>
-          <details class="qa" data-topic="data"><summary><span class="qn"></span><span class="qt">What if I forget my PIN?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Use the recovery key you saved during setup to get back in and set a new PIN. Your data stays as it was.</p></div></details>
-          <details class="qa" data-popular data-topic="help"><summary><span class="qn"></span><span class="qt">Which printers and scanners work?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Any 80 mm or 58 mm thermal printer, A4 printers and label printers installed on Windows, plus any USB or Bluetooth barcode scanner.</p></div></details>
-          <details class="qa" data-topic="help"><summary><span class="qn"></span><span class="qt">Does the cash drawer open by itself?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Yes. A cash drawer connected to the bill printer opens when a cash bill is saved.</p></div></details>
-          <details class="qa" data-topic="help"><summary><span class="qn"></span><span class="qt">How is Tillora priced?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>After the trial, choose a yearly or a lifetime license. Ask us on WhatsApp from inside the app; enter the key and carry on.</p></div></details>
-          <details class="qa" data-topic="help"><summary><span class="qn"></span><span class="qt">Will you help me set it up?</span><span class="qi" aria-hidden="true"></span></summary><div class="qa-a"><p>Yes. Message us on WhatsApp and we will help you import your products, connect your printers and bill your first customer.</p></div></details>
-          <p class="faq-empty" hidden>No question matches that. <a data-whatsapp href="#">Ask us on WhatsApp</a> instead.</p>
-        </div>
-        <div class="faq-help">
-          <div>
-            <b>Still have a question?</b>
-            <p>Ask us on WhatsApp and a real person from Delog Commerce will answer.</p>
-          </div>
-          <a class="btn btn-wa btn-sm" data-whatsapp href="#">Ask on WhatsApp</a>
+          <div class="reqs"><span>WhatsApp &amp; phone +91 63820 26795</span><span>Mon–Sat, 10 am – 7 pm</span></div>
         </div>
       </section>
     </main>
@@ -368,14 +169,14 @@
     <footer class="footer">
       <div class="f-brand">
         <a class="brand" href="#top"><span class="brand-word">DELOG</span><span class="brand-div">Commerce</span></a>
-        <p>Tillora · Billing that sells for you.</p>
+        <p>Billing software for India’s shops and restaurants.</p>
       </div>
       <div class="f-links">
-        <a href="#features">Features</a><a href="#screens">Screens</a><a href="#shops">Shops</a><a href="#download">Download</a><a href="platera.html">Platera for restaurants</a><a data-whatsapp href="#">WhatsApp</a><a data-email href="#">Email</a>
+        <a href="tillora.html">Tillora</a><a href="platera.html">Platera</a><a href="#promises">Why us</a><a href="#about">About</a><a data-whatsapp="home" href="#">WhatsApp</a><a data-email href="#">Email</a>
       </div>
       <p class="f-copy">© <span data-year>2026</span> Delog Commerce. All rights reserved.</p>
     </footer>
 
-    <script src="main.js" defer></script>
+    <script src="main.js?v=20261103-4" defer></script>
   </body>
 </html>

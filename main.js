@@ -7,6 +7,8 @@ const SITE = {
   email: 'support.delogcommerce@gmail.com',
   /** What the WhatsApp button types in for the visitor. */
   whatsappText: 'Hi! I saw Tillora on your website and would like to know more.',
+  /** What the homepage's WhatsApp buttons type in. */
+  homeWhatsappText: 'Hi! I found Delog Commerce on your website and would like to know which app fits my business.',
   platera: {
     /** Platera's installer link. Empty: its buttons offer early access on WhatsApp instead. */
     download: 'https://github.com/delogreleases/platera-releases/releases/latest/download/Platera-Setup.exe',
@@ -14,10 +16,13 @@ const SITE = {
   }
 }
 
-/** Every Delog Commerce product. Add one here and it appears in the Products menu on every page. */
+/** Every Delog Commerce product. Add one here and it appears in the Products menu on every page and as a door on the
+ *  homepage: `blurb` and `gradient` are for its door, `download` its installer link (empty: no Download button). */
 const PRODUCTS = [
-  { key: 'tillora', name: 'Tillora', for: 'Retail shops', colour: '167 139 250', href: 'index.html', icon: 'assets/tillora-icon.svg', shot: 'assets/screens/counter.jpg', points: ['Billing & stock by size', 'GST bills & reports', 'WhatsApp receipts'] },
-  { key: 'platera', name: 'Platera', for: 'Restaurants', colour: '255 122 46', href: 'platera.html', icon: 'assets/platera-icon.svg', shot: 'assets/platera/counter-home.jpg', points: ['Table billing & KOTs', 'Kitchen screen', 'Waiter app & QR ordering'] }
+  { key: 'tillora', name: 'Tillora', for: 'Retail shops', colour: '167 139 250', href: 'tillora.html', icon: 'assets/tillora-icon.svg', shot: 'assets/screens/counter.jpg', points: ['Billing & stock by size', 'GST bills & reports', 'WhatsApp receipts'],
+    blurb: 'Billing, barcode labels, stock by size and colour, GST bills and WhatsApp receipts.', gradient: 'linear-gradient(135deg, #6d5dfc 0%, #c056f5 55%, #ff6fa8 110%)', download: SITE.download },
+  { key: 'platera', name: 'Platera', for: 'Restaurants', colour: '255 122 46', href: 'platera.html', icon: 'assets/platera-icon.svg', shot: 'assets/platera/counter-home.jpg', points: ['Table billing & KOTs', 'Kitchen screen', 'Waiter app & QR ordering'],
+    blurb: 'Table billing, KOTs, a kitchen screen, a waiter app and QR ordering from the table.', gradient: 'linear-gradient(135deg, #ffb02e 0%, #ff5a2c 55%, #e0245e 110%)', download: SITE.platera.download }
 ]
 
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -28,7 +33,7 @@ document.querySelectorAll('[data-download]').forEach((a) => {
   else if (a.getAttribute('href') === '#') a.href = '#download'
 })
 document.querySelectorAll('[data-whatsapp]').forEach((a) => {
-  const text = a.dataset.whatsapp === 'platera' ? SITE.platera.whatsappText : SITE.whatsappText
+  const text = { platera: SITE.platera.whatsappText, home: SITE.homeWhatsappText }[a.dataset.whatsapp] ?? SITE.whatsappText
   a.href = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(text)}`
   a.target = '_blank'
   a.rel = 'noopener'
@@ -97,6 +102,46 @@ document.querySelectorAll('.pmenu').forEach((menu) => {
       items[now < 0 ? 0 : (now + step + items.length) % items.length].focus()
     }
   })
+})
+
+// ---------- homepage: one door per product, in a carousel once they don't all fit ----------
+document.querySelectorAll('[data-doors]').forEach((wrap) => {
+  const track = wrap.querySelector('.door-track')
+  const esc = (t) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;')
+  track.innerHTML = PRODUCTS.map(
+    (p) => `<article class="door" style="--dg: ${p.gradient}; --pc: ${p.colour}">
+  <a class="door-link" href="${p.href}" aria-label="Explore ${esc(p.name)}"></a>
+  <div class="door-for"><img src="${p.icon}" alt="" width="44" height="44" />For ${esc(p.for.toLowerCase())}</div>
+  <h2>${esc(p.name)}</h2>
+  <p>${esc(p.blurb)}</p>
+  <div class="door-actions"><a class="btn btn-white btn-sm" href="${p.href}">Explore ${esc(p.name)} →</a>${p.download ? `<a class="btn btn-sm door-dl" href="${p.download}">Download</a>` : ''}</div>
+  <img class="door-shot" src="${p.shot}" alt="${esc(p.name)} on a billing counter" loading="lazy" />
+</article>`
+  ).join('')
+  // Two products share the row; more than that and a third peeks in, so it's clear there are more to swipe to.
+  track.toggleAttribute('data-many', PRODUCTS.length > 2)
+  const doors = [...track.children]
+  const dots = wrap.querySelector('.door-dots')
+  const prev = wrap.querySelector('[data-door-prev]')
+  const next = wrap.querySelector('[data-door-next]')
+  dots.innerHTML = doors.map((_, i) => `<button type="button" aria-label="Go to ${esc(PRODUCTS[i].name)}"></button>`).join('')
+  const dotBtns = [...dots.children]
+  const step = () => doors[0].offsetWidth + parseFloat(getComputedStyle(track).columnGap || '0')
+  const go = (i) => track.scrollTo({ left: Math.max(0, Math.min(i, doors.length - 1)) * step(), behavior: reduced ? 'auto' : 'smooth' })
+  const update = () => {
+    const scrolls = track.scrollWidth > track.clientWidth + 2
+    wrap.classList.toggle('scrolls', scrolls)
+    const at = Math.round(track.scrollLeft / step())
+    dotBtns.forEach((d, i) => d.toggleAttribute('aria-current', i === at))
+    prev.disabled = track.scrollLeft < 4
+    next.disabled = track.scrollLeft + track.clientWidth > track.scrollWidth - 4
+  }
+  prev.addEventListener('click', () => go(Math.round(track.scrollLeft / step()) - 1))
+  next.addEventListener('click', () => go(Math.round(track.scrollLeft / step()) + 1))
+  dotBtns.forEach((d, i) => d.addEventListener('click', () => go(i)))
+  track.addEventListener('scroll', () => requestAnimationFrame(update), { passive: true })
+  window.addEventListener('resize', update)
+  update()
 })
 
 // ---------- mobile menu ----------

@@ -1,6 +1,16 @@
 # Delog Commerce website (Tillora and Platera)
 
-A static site: `index.html` (Tillora), `platera.html` (Platera, the restaurant POS), `styles.css`, `platera.css`, `main.js` and `assets/`. No build step; open `index.html` in a browser to preview.
+A static site with no build step; open `index.html` in a browser to preview.
+
+| Page | What it is |
+|---|---|
+| `index.html` | Delog Commerce homepage: a door per product (a carousel once they don't all fit), who we are, our promises, getting started, contact. Styles in `home.css`. |
+| `tillora.html` | Tillora, retail billing (this was `index.html` before; old links like `index.html#download` are sent here). |
+| `platera.html` | Platera, the restaurant POS. Styles in `platera.css`. |
+
+`styles.css` is shared by every page, and `main.js` runs them all.
+
+**Adding a product:** add it to `PRODUCTS` in `main.js` (name, colours, icon, screenshot, door text and download link). It then shows up in the Products menu on every page and as a door on the homepage; give it its own page like `platera.html`.
 
 ## Before publishing
 
@@ -14,6 +24,8 @@ Fill in the `SITE` block at the top of `main.js`:
 | `platera.download` | Platera's installer link, e.g. `https://github.com/delogreleases/platera-releases/releases/latest/download/Platera-Setup.exe`. Empty: its buttons offer early access on WhatsApp instead of a download. |
 
 ## Hosting (free)
+
+After changing `main.js`, `styles.css` or `platera.css`, bump the `?v=` date where both pages link them, so visitors' browsers fetch the new file instead of a cached one.
 
 - **GitHub Pages**: push this folder to a repository, then Settings → Pages → deploy from the branch.
 - **Netlify** or **Cloudflare Pages**: drag and drop this folder in their dashboard.

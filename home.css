@@ -1,0 +1,368 @@
+/* Delog Commerce · company homepage (index.html). Loaded after styles.css and platera.css, and reuses their parts. */
+
+/* ---------- hero: the words, and the two apps as stacked windows ---------- */
+.home-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 3rem;
+  align-items: center;
+  min-height: min(760px, calc(100vh - 90px));
+  padding-top: 40px;
+}
+.home-hero h1 {
+  font-size: clamp(2.6rem, 5.6vw, 5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.02;
+}
+.hero-windows {
+  position: relative;
+  aspect-ratio: 1.24;
+}
+.hero-windows figure {
+  position: absolute;
+  margin: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #171827;
+  box-shadow: 0 50px 100px -30px rgb(0 0 0 / 0.9), 0 0 0 1px rgb(255 255 255 / 0.1);
+}
+/* A window's title bar with the three dots. */
+.hero-windows figure::before {
+  content: '';
+  display: block;
+  height: 28px;
+  background: radial-gradient(circle at 16px 14px, #ff5f57 5px, transparent 6px), radial-gradient(circle at 34px 14px, #febc2e 5px, transparent 6px), radial-gradient(circle at 52px 14px, #28c840 5px, transparent 6px), #1d1e2e;
+}
+.hw-back {
+  width: 78%;
+  left: 0;
+  top: 0;
+  transform: rotate(-2deg);
+}
+.hw-front {
+  width: 74%;
+  right: 0;
+  bottom: 0;
+  transform: rotate(2deg);
+}
+.hw-chip {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.7rem 1rem;
+  border-radius: 16px;
+  background: rgb(20 20 34 / 0.85);
+  border: 1px solid var(--border-2);
+  backdrop-filter: blur(12px);
+  font-weight: 600;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  box-shadow: 0 20px 40px -20px #000;
+  animation: hw-float 6s ease-in-out infinite alternate;
+}
+.hw-chip b {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #10b981, #0d9488);
+  font-size: 0.8rem;
+}
+.hw-c1 {
+  left: -4%;
+  bottom: 22%;
+}
+.hw-c2 {
+  right: 2%;
+  top: 4%;
+  animation-delay: -3s;
+}
+@keyframes hw-float {
+  to {
+    translate: 0 -10px;
+  }
+}
+
+/* ---------- product doors ---------- */
+.doors {
+  padding-top: 110px;
+}
+.doors-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 1.8rem;
+}
+.doors-head h2 {
+  font-size: clamp(2.3rem, 5vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+.doors-head p {
+  margin-top: 0.8rem;
+  max-width: 620px;
+  color: var(--text-2);
+  font-size: 1.08rem;
+}
+.door-arrows {
+  display: none;
+  gap: 0.6rem;
+  flex: none;
+}
+.doors.scrolls .door-arrows {
+  display: flex;
+}
+.door-arrows button {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border-2);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.2s, opacity 0.2s;
+}
+.door-arrows button:hover:not(:disabled) {
+  background: var(--surface-2);
+}
+.door-arrows button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.door-arrows svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.door-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  border-radius: 32px;
+  outline: none;
+}
+.door-track::-webkit-scrollbar {
+  display: none;
+}
+.door-track:focus-visible {
+  box-shadow: 0 0 0 3px rgb(167 139 250 / 0.6);
+}
+.door {
+  position: relative;
+  flex: 0 0 calc((100% - 20px) / 2);
+  min-height: 600px;
+  padding: clamp(1.6rem, 3vw, 2.6rem);
+  border-radius: 32px;
+  overflow: hidden;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  background: var(--dg);
+  color: #fff;
+  isolation: isolate;
+}
+/* More than two products: a third door peeks in from the edge. */
+.door-track[data-many] .door {
+  flex-basis: calc((100% - 40px) / 2.25);
+}
+.door::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(500px 300px at 85% 0%, rgb(255 255 255 / 0.22), transparent 70%);
+}
+.door-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+}
+.door-link:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: -6px;
+}
+.door-for {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.door-for img {
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
+  outline: 2px solid rgb(255 255 255 / 0.5);
+}
+.door h2 {
+  margin-top: 0.9rem;
+  font-size: clamp(2.8rem, 6vw, 4.6rem);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+}
+.door p {
+  margin-top: 0.6rem;
+  max-width: 440px;
+  font-size: 1.05rem;
+  color: rgb(255 255 255 / 0.94);
+}
+.door-actions {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 1.4rem 0 2.2rem;
+}
+.door .btn-white {
+  color: #241640;
+}
+.door-dl {
+  background: rgb(0 0 0 / 0.22);
+  border-color: rgb(255 255 255 / 0.35);
+  color: #fff;
+}
+.door-dl:hover {
+  background: rgb(0 0 0 / 0.32);
+  transform: translateY(-2px);
+}
+/* In the flow under the text, hanging off the bottom edge: it can never cover the buttons. */
+.door-shot {
+  margin: auto 0 calc(-1 * clamp(1.6rem, 3vw, 2.6rem) - 50px);
+  width: min(640px, 100%);
+  border-radius: 14px;
+  box-shadow: 0 40px 80px rgb(0 0 0 / 0.35);
+  transform: rotate(-3deg);
+  transform-origin: left bottom;
+  transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.door:hover .door-shot {
+  transform: rotate(-1.5deg) translateY(-10px);
+}
+.door-dots {
+  display: none;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 1.2rem;
+}
+.doors.scrolls .door-dots {
+  display: flex;
+}
+.door-dots button {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 9px;
+  background: rgb(255 255 255 / 0.3);
+  cursor: pointer;
+  transition: width 0.25s, background 0.25s;
+}
+.door-dots button[aria-current] {
+  width: 26px;
+  background: #fff;
+}
+.doors-plain {
+  color: var(--text-2);
+}
+
+/* ---------- promises ---------- */
+.promises {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  perspective: 1200px;
+}
+.home .about {
+  padding-top: 120px;
+}
+.home .about p + p {
+  margin-top: 0.8rem;
+}
+
+@media (max-width: 1020px) {
+  .home-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .hero-windows {
+    max-width: 680px;
+  }
+  .promises {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .door,
+  .door-track[data-many] .door {
+    flex-basis: 78%;
+    min-height: 540px;
+  }
+}
+@media (max-width: 760px) {
+  .home-hero {
+    padding-top: 24px;
+    gap: 2.4rem;
+  }
+  .hw-chip {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.78rem;
+  }
+  .hw-c1 {
+    left: 0;
+    bottom: 6%;
+  }
+  .hw-c2 {
+    right: 0;
+    top: -4%;
+  }
+  .doors {
+    padding-top: 80px;
+  }
+  .doors-head {
+    margin-bottom: 1.2rem;
+  }
+  .door-arrows,
+  .doors.scrolls .door-arrows {
+    display: none;
+  }
+  /* Phones: one door at a time with the next one peeking, swiped sideways. */
+  .door-track {
+    margin-inline: calc(-1 * var(--gutter));
+    padding-inline: var(--gutter);
+    scroll-padding-inline: var(--gutter);
+    gap: 12px;
+    border-radius: 0;
+  }
+  .door,
+  .door-track[data-many] .door {
+    flex-basis: 86%;
+    min-height: 480px;
+    border-radius: 26px;
+  }
+  .door-shot {
+    width: 116%;
+    max-width: none;
+  }
+  .home .about-mark {
+    display: none;
+  }
+  .promises {
+    grid-template-columns: 1fr;
+  }
+}
